@@ -10,6 +10,11 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { SharedRoutingModule } from './shared/shared-routing.module';
+import { CategoriesComponent } from './categories/categories.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toastr';
+
+
 
 @NgModule({
   declarations: [
@@ -17,6 +22,7 @@ import { SharedRoutingModule } from './shared/shared-routing.module';
     HomeComponent,
     ConcatusComponent,
     AboutusComponent,
+    CategoriesComponent,
     
   ],
   imports: [
@@ -24,7 +30,14 @@ import { SharedRoutingModule } from './shared/shared-routing.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    SharedRoutingModule
+    SharedRoutingModule,
+    HttpClientModule,
+    ToastNoAnimationModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut : 5000,
+      positionClass:'toast-bottom-center',
+      preventDuplicates:true,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
