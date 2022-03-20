@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutusComponent } from './aboutus/aboutus.component';
-import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { ConcatusComponent } from './concatus/concatus.component';
 import { HomeComponent } from './home/home.component';
+import { SharedRoutingModule } from './shared/shared-routing.module';
+import { SharedModule } from './shared/shared.module';
 
 const routes: Routes = [  
   {
@@ -26,7 +27,12 @@ component:HomeComponent
 {
   path:'auth',
   loadChildren:()=>AuthModule
-}
+},
+// {
+//   path:'shared',
+//   loadChildren:()=>SharedRoutingModule
+// }
+
 
 ];
 
