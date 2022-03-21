@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthserviceService } from 'src/app/service/authservice.service';
 
 @Component({
   selector: 'app-login',
@@ -7,12 +9,20 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-email=new FormControl('',[Validators.email,Validators.required]);
-password=new FormControl('',[Validators.required,Validators.minLength(8)]);
+  email = new FormControl('',[Validators.required,Validators.email]);
+  password=new FormControl('',[Validators.required,Validators.minLength(6)]);
 
-  constructor() { }
+  constructor(private router:Router , public auth:AuthserviceService) { }
 
   ngOnInit(): void {
+  }
+  submit(){
+    this.auth.submit(this.email , this.password);
+  }
+  goToRegister(){
+    //this.spinner.show();
+    this.router.navigate(['security/register'])
+    //this.spinner.hide();
   }
 
 }

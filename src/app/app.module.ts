@@ -15,6 +15,7 @@ import { CategoriesDesignComponent } from './categories-design/categories-design
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,8 +23,6 @@ import { CategoriesDesignComponent } from './categories-design/categories-design
     ConcatusComponent,
     AboutusComponent,
     CategoriesComponent,
-    CategoriesDesignComponent,
-    
   ],
   imports: [
     BrowserModule,

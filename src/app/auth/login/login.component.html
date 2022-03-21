@@ -44,7 +44,10 @@
        margin-top: -199px;" alt="login Image">
       <!--  Login Button-->
       <div class="form-group mt-3">
-          <button class="button button-contactForm boxed-btn">Login</button>
+          <!-- <button class="button button-contactForm boxed-btn">Login</button> -->
+          <button class="button button-contactForm boxed-btn" type="submit" [disabled]="!email.valid || !password.valid" (click)="submit()">Login</button>
+          <p style="cursor:pointer; text-align: center;" (click)="goToRegister()">Create new Account </p>
+
       </div>
       <!-- End Login Button-->
   </form>
