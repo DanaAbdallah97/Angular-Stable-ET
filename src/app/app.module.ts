@@ -16,6 +16,7 @@ import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toas
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +24,7 @@ import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toas
     ConcatusComponent,
     AboutusComponent,
     CategoriesComponent,
+   
     
   ],
   imports: [
