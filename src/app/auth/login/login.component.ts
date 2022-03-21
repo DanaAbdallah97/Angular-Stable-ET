@@ -19,10 +19,6 @@ export class LoginComponent implements OnInit {
   submit(){
     this.auth.submit(this.email , this.password);
   }
-  goToRegister(){
-    //this.spinner.show();
-    this.router.navigate(['security/register'])
-    //this.spinner.hide();
-  }
+
 
 }

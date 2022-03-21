@@ -11,8 +11,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { SharedRoutingModule } from './shared/shared-routing.module';
 import { CategoriesComponent } from './categories/categories.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toastr';
+import { tokeninterceptor } from './interceptor/token.interceptor';
 
 
 
@@ -41,7 +42,13 @@ import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toas
       preventDuplicates:true,
     }),
   ],
-  providers: [],
+  providers: [
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass:tokeninterceptor,
+    multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
