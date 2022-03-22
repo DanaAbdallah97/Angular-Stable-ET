@@ -14,7 +14,7 @@
       <!-- Email-->
        <mat-form-field appearance="fill" style="width:60%;">
            <div class="col-12">
-                     <input type="email" class="form-control valid" [formControl]="email" placeholder="Email" >
+                     <input type="email"  class="form-control valid" [formControl]="email" placeholder="Email" >
                      <mat-error  *ngIf="email.hasError('email') && !email.hasError('required')">
                       Please enter a valid email address
                     </mat-error>
@@ -28,7 +28,7 @@
       <!-- Password-->
        <mat-form-field appearance="fill" style="width:60%;">
             <div class="col-12">
-                   <input type="password" class="form-control valid"  [formControl]="password" placeholder="Password" >
+                   <input type="password"  class="form-control valid"  [formControl]="password" placeholder="Password" >
                    <mat-error *ngIf="password.hasError('minlength') && !password.hasError('required')">
                       Please enter a strong password
                     </mat-error>
@@ -46,7 +46,6 @@
       <div class="form-group mt-3">
           <!-- <button class="button button-contactForm boxed-btn">Login</button> -->
           <button class="button button-contactForm boxed-btn" type="submit" [disabled]="!email.valid || !password.valid" (click)="submit()">Login</button>
-          <p style="cursor:pointer; text-align: center;" (click)="goToRegister()">Create new Account </p>
 
       </div>
       <!-- End Login Button-->
