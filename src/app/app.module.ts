@@ -11,11 +11,11 @@ import { SharedRoutingModule } from './shared/shared-routing.module';
 import { CategoriesComponent } from './categories/categories.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toastr';
-<<<<<<< HEAD
+
 import { tokeninterceptor } from './interceptor/token.interceptor';
-=======
+
 import { CategoriesDesignComponent } from './categories-design/categories-design.component';
->>>>>>> 2406f9b4f1f2dac16bd8ed11e83b9025d84abbe6
+
 
 
 

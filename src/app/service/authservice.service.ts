@@ -3,13 +3,16 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HomeService } from './home.service';
 import jwt_decode from "jwt-decode";
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthserviceService {
-
-  constructor(private router : Router , private homeservices : HomeService , private http : HttpClient) { }
+  selectedAccount:any={};
+  data:any=[]  
+  profilepicture:any;
+  constructor(private router : Router , private homeservices : HomeService , private http : HttpClient,private toaster : ToastrService) { }
   submit (email : any , password : any){
     
     var body = {
@@ -58,6 +61,95 @@ export class AuthserviceService {
     // }
 
   }
+
+
+ getByID(acoountid:any){
+  //this.spinner.show(); 
+  //hits the API 
+  this.http.get('https://localhost:44363/api/Account/GetAccount'+acoountid).subscribe((
+    res) =>{this.selectedAccount=res;
+    //this.spinner.hide();
+  this.toaster.success('Data Retreived')},
+  err=> {
+    //this.spinner.hide();
+    this.toaster.error(err.message);
+    this.toaster.error(err.status);
+  })
+ }
+
+
+  getAll(){
+    //this.spinner.show();
+    this.http.get('https://localhost:44363/api/Account/GetAccount').subscribe((
+      res) =>{this.data=res;
+     // this.spinner.hide();
+    this.toaster.success('Data Retreived')},
+    err=> {
+      //this.spinner.hide();
+      this.toaster.error(err.message);
+      this.toaster.error(err.status);
+
+    })
+  }
+
+  createAccount(data:any){
+    debugger
+    //this.spinner.show();
+    data.profilepicture=this.profilepicture;
+    this.http.post('https://localhost:44363/api/Account/CreateAccount',data).subscribe(
+      (res:any)=>{
+        //this.spinner.hide();
+      this.toaster.success('Saved succefully')
+    }, err=>{
+        //this.spinner.hide();
+        this.toaster.error(err.message,err.status)
+      });
+  }
+
+
+  uploadAttachment(file:FormData){
+    debugger
+    this.http.post('https://localhost:44363/api/Account/UploadImage',file).subscribe(
+    (res:any)=>{
+      this.profilepicture=res.profilepicture;
+    },err=>{
+      this.toaster.error(err.message,err.status)
+    }
+    )
+  }
+
+  // uploadFile(files : any){
+  //   if (files.length === 0){
+  //     return;
+  //   }
+  //   let fileToUpload = <File>files[0];
+  //   const formData= new FormData();
+  //   formData.append('file',fileToUpload,fileToUpload.name);
+  //   this.uploadAttachment(formData);
+  // }
+
+  updateAccount(body:any){
+    body.profilepicture=this.profilepicture;
+    this.http.put('https://localhost:44363/api/Account/UpdateAccount',body).subscribe((res)=>{
+      this.toaster.success('updated succefully')
+    },err=>{
+      this.toaster.error('something went wrong !!')
+    }
+    )
+  }
+
+
+
+  delete(acoountid:number){
+    this.http.delete('https://localhost:44363/api/Account/UpdateAccount'+acoountid).subscribe((res)=>{
+      this.toaster.success('deleted  succefully')
+    },err=>{
+      this.toaster.error('something went wrong with deleteing!!')
+    }
+    )
+
+  }
+
 }
 
 
