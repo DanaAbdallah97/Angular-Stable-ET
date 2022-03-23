@@ -8,7 +8,7 @@ import {MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { AppModule } from '../app.module';
-
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -23,6 +23,7 @@ import { AppModule } from '../app.module';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatRadioModule
   
   ],
   exports:[
@@ -33,7 +34,8 @@ import { AppModule } from '../app.module';
     MatInputModule,
     MatButtonModule,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MatRadioModule
   ]
 })
 export class SharedModule { }
