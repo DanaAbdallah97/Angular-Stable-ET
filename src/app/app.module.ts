@@ -8,14 +8,11 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { SharedRoutingModule } from './shared/shared-routing.module';
+import { FormsModule } from '@angular/forms';
 import { CategoriesComponent } from './categories/categories.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toastr';
-
 import { tokeninterceptor } from './interceptor/token.interceptor';
-
-import { CategoriesDesignComponent } from './categories-design/categories-design.component';
-
 
 
 
@@ -41,6 +38,7 @@ import { CategoriesDesignComponent } from './categories-design/categories-design
       positionClass:'toast-bottom-center',
       preventDuplicates:true,
     }),
+    FormsModule,
   ],
   providers: [
     {
