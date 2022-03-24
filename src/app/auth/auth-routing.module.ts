@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterLandingComponent } from './register-landing/register-landing.component';
 import { StudentRegisterComponent } from './student-register/student-register.component';
-import { StudentRegisterdesignComponent } from './student-registerdesign/student-registerdesign.component';
 import { TeacherRegisterComponent } from './teacher-register/teacher-register.component';
 
 
