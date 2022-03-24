@@ -6,14 +6,12 @@ import { ToastrService } from 'ngx-toastr';
   providedIn: 'root'
 })
 export class AboutUsService {
-  aboutus:any=[]
+
+  urlGetAboutus = 'https://localhost:44363/api/managepage/getManagepage';
+
+
   constructor(private http:HttpClient, private toaster:ToastrService) { }
   getAboutUs(){
-    this.http.get('https://localhost:44363/api/Managepage/GetManagepage').subscribe((res)=>{
-      this.aboutus=res;
-      this.toaster.success('data retrived');      
-      },err=>{
-        this.toaster.error('somthing went wrong');
-      })
+    return this.http.get(this.urlGetAboutus);
   }
 }
