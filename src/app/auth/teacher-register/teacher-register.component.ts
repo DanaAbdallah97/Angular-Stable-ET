@@ -10,22 +10,28 @@ import { AuthserviceService } from 'src/app/service/authservice.service';
 })
 export class TeacherRegisterComponent implements OnInit {
 
-  constructor(private router:Router , public auth:AuthserviceService,private http:HttpClient) { }
-  ngOnInit(): void {
-    this.auth.getAll(); 
-    
+  roldeidTeacher = 3
+  teacherid = 9999
+  teacherstatus="waiting"
+
+ constructor(private router: Router, private http: HttpClient, public auth: AuthserviceService) { }
+
+  onSubmit(data: any) {
+    console.warn(data);
+    this.auth.createAccount(data);
+    this.router.navigate(['auth/login'])
+    .then(() => {
+      window.location.reload();
+    });
+    //     this.http.post('https://localhost:44363/api/Account/createAccount',data).subscribe((result)=>{
+    // console.warn("result",result);
+    //     });
   }
 
-  // onSubmit(data:any){
-  //   debugger
-  //   this.http.post('https://localhost:44363/api/Account/CreateAccount',data)
-  //  .subscribe((res)=>{
-  //   console.log("result",res)
-  //   })
-  //   console.log("date",data)
-    
-  //   }
+ 
+  ngOnInit(): void {
+    this.auth.getAll();
 
-
+  }
 
 }

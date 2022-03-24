@@ -1,37 +1,64 @@
-<app-header></app-header>
+<app-header></app-header> <br /><br />
 
-<h1>Teacher Register</h1>
+<div style="margin-left: 80px;">
+<h1 style="margin-left: 40px; font-size: 40px">Register as Teacher</h1>
 
+<div class="col-lg-8">
+    <form style="margin-left: 25px; width: 400px" class="form-contact contact_form" #studentPost="ngForm"
+        (ngSubmit)="onSubmit(studentPost.value)" >
+       
+            <!-- student id -->
+            <input class="form-control" type="number" n name="acoountid" ngModel placeholder="id" 
+                [value]="teacherid" [(ngModel)]="teacherid" hidden/>
+            <br />
+            <!-- student role id -->
+            <input class="form-control" type="number" name="roleid" ngModel placeholder="role"
+                [value]="roldeidTeacher" [(ngModel)]="roldeidTeacher" hidden />
+            <br />
+            <!-- first name -->
+            <input class="form-control" type="text" name="firstname" ngModel placeholder="fname"  required minlength="4" />
+            <br />
+            <!-- last name -->
+            <input class="form-control" type="text" name="lastname" ngModel placeholder="lastname" />
+            <br />
+            <!-- password -->
+            <input class="form-control" type="text" name="accountpassword" ngModel placeholder="password" />
+            <br />
+            <!-- email -->
+            <input class="form-control" class="form-control" type="email" name="email" ngModel placeholder="email" />
+            <br />
+            <!-- phone number -->
+            <input class="form-control" type="text" name="phonenumber" ngModel placeholder="phonenumber" />
+            <br />
+            <!-- gender -->
+            <select class="form-control"  name="gender" ngModel >
+                <option value="" disabled selected hidden>Choose Gender...</option>
+                <option class="form-control" value="male">Male</option>
+                <option class="form-control" value="female">Female</option>
+            </select>  <br />
+            <!-- date of birth -->
+            <input class="form-control" type="date" name="birthofdate" ngModel placeholder="Birth of date" /> <br>
+            <!-- profile picture -->
+            <input class="form-control" type="text" name="profilepicture" ngModel placeholder="profilepicture" />
+            <!-- accountstatus -->
+            <input class="form-control" type="text" name="accountstatus" ngModel  placeholder="accountstatus"
+            [value]="teacherstatus" [(ngModel)]="teacherstatus" hidden />
+        <br />
+        <!-- certificate -->
+        <input class="form-control" type="text" name="certificate" ngModel placeholder="certificate" /><br>
+                <!-- specialization -->
+                <input class="form-control" type="text" name="specialization" ngModel placeholder="specialization" /><br>
 
-<!-- <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)">
-    <input type="text" name="name" ngModel placeholder="name"><br>
-    <input type="text" name="name" ngModel placeholder="email"><br>
-    <button type="submit">subit data</button>
-</form>  -->
-
-<!-- <app-teacher-registerdesign *ngFor="let obj of auth.data"
-[acoountid]="obj.acoountid"
-[roleid]="obj.roleid" 
-[firstname]="obj.firstname" 
-[lastname]="obj.lastname"
-[accountpassword]="obj.accountpassword"
-[email]="obj.email"
-[phonenumber]="obj.phonenumber"
-[gender]="obj.gender"
-[birthofdate]="obj.birthofdate"
-[profilepicture]="obj.profilepicture"
-[accountstatus]="obj.accountstatus" 
-[certificate]="obj.certificate"
-[specialization]="obj.specialization" 
-[wline]="obj.wline" 
-[hline]="obj.hline"
-[role]="obj.role" 
-[appointments]="obj.appointments" 
-[courses]="obj.courses" 
-[testmonials]="obj.testmonials">
-</app-teacher-registerdesign>  -->
-
-
+            <br />  <br />
+            <button class="button button-contactForm boxed-btn" type="submit">
+                submit
+            </button>
+            <br /><br /><br /><br /><br />
+    </form>
+</div>
+<img src="./assets/img/register.png" width="400px" height="420px" style="position: absolute; margin-left: 800px;
+margin-top: -855px;" alt="login Image">
+</div>
 
 
 <app-footer></app-footer>
