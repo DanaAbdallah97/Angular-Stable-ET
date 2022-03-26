@@ -9,6 +9,8 @@ import { HomeService } from '../service/home.service';
 export class CategoriesComponent implements OnInit {
 
   constructor(private category: HomeService) { }
+  name = 'Parent';
+  currentMsgToChild1 = '';
 
   categoriesList:any={}
 

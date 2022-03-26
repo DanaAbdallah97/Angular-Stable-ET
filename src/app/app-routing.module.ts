@@ -4,6 +4,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { AdminModule } from './admin/admin.module';
 import { AuthModule } from './auth/auth.module';
 import { ConcatusComponent } from './concatus/concatus.component';
+import { CourseComponent } from './course/course.component';
 import { HomeComponent } from './home/home.component';
 import { SharedRoutingModule } from './shared/shared-routing.module';
 import { SharedModule } from './shared/shared.module';
@@ -32,7 +33,13 @@ component:HomeComponent
 {
   path:'admin',
   loadChildren:()=>AdminModule
+},
+
+{
+  path: 'course',
+  component: CourseComponent
 }
+
 
 // {
 //   path:'shared',

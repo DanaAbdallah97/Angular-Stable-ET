@@ -19,6 +19,7 @@ export class AuthserviceService {
     private http: HttpClient,
     private toaster: ToastrService
   ) { }
+
   submit(email: any, password: any) {
     var body = {
       Email: email.value.toString(),
@@ -97,7 +98,6 @@ export class AuthserviceService {
   }
 
   createAccount(data: any) {
-    data.profilepicture = this.profilepicture;
     this.http
       .post('https://localhost:44363/api/Account/CreateAccount', data)
       .subscribe(
@@ -110,28 +110,6 @@ export class AuthserviceService {
       );
   }
 
-  uploadAttachment(file: FormData) {
-    this.http
-      .post('https://localhost:44363/api/Account/UploadImage', file)
-      .subscribe(
-        (res: any) => {
-          this.profilepicture = res.profilepicture;
-        },
-        (err) => {
-          this.toaster.error(err.message, err.status);
-        }
-      );
-  }
-
-  // uploadFile(files : any){
-  //   if (files.length === 0){
-  //     return;
-  //   }
-  //   let fileToUpload = <File>files[0];
-  //   const formData= new FormData();
-  //   formData.append('file',fileToUpload,fileToUpload.name);
-  //   this.uploadAttachment(formData);
-  // }
 
   updateAccount(body: any) {
     body.profilepicture = this.profilepicture;
