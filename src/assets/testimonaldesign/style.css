@@ -56,7 +56,7 @@
 .testimonial {
     min-height: 375px;
     position: relative;
-    background: url(https://i.ibb.co/PTJDkgb/testimonials.jpg);
+    background-color:#BCDFFF; 
     padding-top: 50px;
     padding-bottom: 50px;
     background-position: center;
@@ -212,13 +212,13 @@
     -webkit-box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.23);
 }
 .testimonial4_slide p {
-    color: #ffffff;
+    color: #030431;
     font-size: 20px;
     line-height: 1.4;
     margin: 40px 0 20px 0;
 }
 .testimonial4_slide h4 {
-  color: #ffffff;
+  color: #030431;
   font-size: 22px;
 }
 
@@ -228,5 +228,6 @@
 .testimonial .carousel-control-next-icon, .testimonial .carousel-control-prev-icon {
     width: 35px;
     height: 35px;
+    color:#030431;
 }
 /* ------testimonial  close-------*/
