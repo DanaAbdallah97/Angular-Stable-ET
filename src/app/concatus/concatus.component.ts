@@ -1,20 +1,37 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
-import { HomeService } from '../service/home.service';
+import { Router } from '@angular/router';
+import { ContactusService } from '../service/contactus.service';
 
 @Component({
   selector: 'app-concatus',
   templateUrl: './concatus.component.html',
-  styleUrls: ['./concatus.component.css']
+  styleUrls: ['./concatus.component.css'],
 })
 export class ConcatusComponent implements OnInit {
-  @Input() messageid: number | undefined
-  @Input() subject: string | undefined
-  @Input() messagebody: string | undefined
-  @Input() senderemail: string | undefined
-  @Input() recevieremail: string | undefined
-  constructor( public home:HomeService) { }
+  recevieremail ="Etreeks@gmail.com"
 
-  ngOnInit(): void {
+
+  constructor(
+    public contact: ContactusService,
+    private router: Router
+  ) {}
+
+  onSubmit(data: any) {
+    console.warn(data);
+    this.contact.createMessage(data);
+    // this.router.navigate(['contact']).then(() => {
+    //   window.location.reload();
+    // });
+
   }
 
+  get_Phone_Pmail_Address_Contactus: any = {};
+
+  ngOnInit(): void {
+    this.contact.getPhoneNumber_Address_Email_Website().subscribe((result) => {
+      console.warn(result);
+      this.get_Phone_Pmail_Address_Contactus = result;
+    });
+  }
 }

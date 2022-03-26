@@ -10,13 +10,11 @@ export class HomeComponent implements OnInit {
 
 
   constructor(public home:HomeService) { 
-    this.home.getAllCategories();
+
   }
 
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
 }
 

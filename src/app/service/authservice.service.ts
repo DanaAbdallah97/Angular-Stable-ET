@@ -18,7 +18,8 @@ export class AuthserviceService {
     private homeservices: HomeService,
     private http: HttpClient,
     private toaster: ToastrService
-  ) {}
+  ) { }
+
   submit(email: any, password: any) {
     var body = {
       Email: email.value.toString(),
@@ -33,11 +34,11 @@ export class AuthserviceService {
     const requestOptions = {
       headers: new HttpHeaders(headerDir),
     };
-    //this.spinner.show();
+
     this.http
       .post('https://localhost:44363/api/JWT/auth', body, requestOptions)
       .subscribe((res: any) => {
-        //this.spinner.hide();
+
         console.log(res);
         const response = {
           token: res.toString(),
@@ -58,13 +59,12 @@ export class AuthserviceService {
         }
       });
     // }),err => {
-    //   this.spinner.hide();
+
     // }
   }
 
   getByID(acoountid: any) {
-    //this.spinner.show();
-    //hits the API
+
     this.http
       .get('https://localhost:44363/api/Account/GetAccount' + acoountid)
       .subscribe(
@@ -82,15 +82,15 @@ export class AuthserviceService {
   }
 
   getAll() {
-    //this.spinner.show();
+
     this.http.get('https://localhost:44363/api/Account/GetAccount').subscribe(
       (res) => {
         this.data = res;
-        // this.spinner.hide();
+
         this.toaster.success('Data Retreived');
       },
       (err) => {
-        //this.spinner.hide();
+
         this.toaster.error(err.message);
         this.toaster.error(err.status);
       }
@@ -98,12 +98,11 @@ export class AuthserviceService {
   }
 
   createAccount(data: any) {
-    data.profilepicture = this.profilepicture;
     this.http
       .post('https://localhost:44363/api/Account/CreateAccount', data)
       .subscribe(
         (res: any) => {
-          console.warn("result",res);
+          console.warn("result", res);
         },
         (err) => {
           this.toaster.error(err.message, err.status);
@@ -111,28 +110,6 @@ export class AuthserviceService {
       );
   }
 
-  uploadAttachment(file: FormData) {
-    this.http
-      .post('https://localhost:44363/api/Account/UploadImage', file)
-      .subscribe(
-        (res: any) => {
-          this.profilepicture = res.profilepicture;
-        },
-        (err) => {
-          this.toaster.error(err.message, err.status);
-        }
-      );
-  }
-
-  // uploadFile(files : any){
-  //   if (files.length === 0){
-  //     return;
-  //   }
-  //   let fileToUpload = <File>files[0];
-  //   const formData= new FormData();
-  //   formData.append('file',fileToUpload,fileToUpload.name);
-  //   this.uploadAttachment(formData);
-  // }
 
   updateAccount(body: any) {
     body.profilepicture = this.profilepicture;

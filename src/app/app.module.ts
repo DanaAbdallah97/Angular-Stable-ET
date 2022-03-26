@@ -13,6 +13,8 @@ import { CategoriesComponent } from './categories/categories.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toastr';
 import { tokeninterceptor } from './interceptor/token.interceptor';
+import { CourseComponent } from './course/course.component';
+import { TestimonialComponent } from './testimonial/testimonial.component';
 
 
 
@@ -24,6 +26,8 @@ import { tokeninterceptor } from './interceptor/token.interceptor';
     ConcatusComponent,
     AboutusComponent,
     CategoriesComponent,
+    CourseComponent,
+    TestimonialComponent,
   ],
   imports: [
     BrowserModule,

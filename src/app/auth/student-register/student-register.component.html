@@ -3,12 +3,14 @@
 <div style="margin-left: 80px;">
 <h1 style="margin-left: 40px; font-size: 40px">Register as Stuent</h1>
 
+
+
 <div class="col-lg-8">
     <form style="margin-left: 25px; width: 400px" class="form-contact contact_form" #studentPost="ngForm"
         (ngSubmit)="onSubmit(studentPost.value)" >
        
             <!-- student id -->
-            <input class="form-control" type="number" n name="acoountid" ngModel placeholder="id" 
+            <input class="form-control" type="number"  name="acoountid" ngModel placeholder="id" 
                 [value]="studentid" [(ngModel)]="studentid" hidden/>
             <br />
             <!-- student role id -->
@@ -39,16 +41,20 @@
             <!-- date of birth -->
             <input class="form-control" type="date" name="birthofdate" ngModel placeholder="Birth of date" /> <br>
             <!-- profile picture -->
-            <input class="form-control" type="text" name="profilepicture" ngModel placeholder="profilepicture" />
+            <input style="opacity: 0;" id="file"  type="file" (change)="onFileSelected($event)" #fileInput>
+            <label  class="genric-btn primary" for="file">Profile Picture</label>
+            <!-- <button  (click)="fileInput.click()" class="genric-btn primary">Profile Picture</button> -->
+            <!-- <input class="form-control" type="text" name="profilepicture" ngModel placeholder="profilepicture" /> -->
             <br />  <br />
+            <br><br>
             <button class="button button-contactForm boxed-btn" type="submit">
-                submit
+                Register
             </button>
             <br /><br /><br /><br /><br />
     </form>
 </div>
-<img src="./assets/img/register.png" width="400px" height="420px" style="position: absolute; margin-left: 800px;
-margin-top: -695px;" alt="login Image">
+<img src="./assets/img/register.png" width="400px" height="420px" style="position: absolute; margin-left: 740px;
+margin-top: -775px;" alt="login Image">
 </div>
 
 

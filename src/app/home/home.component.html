@@ -9,17 +9,13 @@
                     <div class="col-xl-6 col-lg-7 col-md-8">
                         <div class="hero__caption">
                             <span data-animation="fadeInLeft" data-delay=".2s"></span>
-                            <h1 data-animation="fadeInLeft" data-delay=".4s">The New Way To Learn Properly in With Us!</h1>
-                            <!-- Hero-btn -->
-                            <div class="hero__btn">
-                                <a href="industries.html" class="btn hero-btn" data-animation="fadeInLeft" data-delay=".8s">Get Started</a>
-                            </div>
+                            <h1 data-animation="fadeInLeft" data-delay=".4s">The New Way To Learn Properly in With Us!</h1><br><br>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-5 ">
                         <div class="hero-man d-none d-lg-block f-right" data-animation="jello" data-delay=".4s">
                             <!-- <img src="./assets/img/hero/heroman.png" alt=""> -->
-                                 <img style="max-width:100%;
+                                 <img style="max-width:100%; margin-top: -40px;
                                  max-height:100%;" src="./assets/background/b1.jpg" alt="">
                         </div>
                     </div>
@@ -30,12 +26,11 @@
 
 <!-- Single Slider -->
 
-<app-categories *ngFor="let categories of home.categories" [categoryid]="categories.categoryid"
-[categoryname]="categories.categoryname" [categorydescription]="categories.categorydescription" 
-[categoryimage]="categories.categoryimage" [courses]="categories.courses"></app-categories>
+
+<app-categories></app-categories>
 
 
-<!--? Count Down Start -->
+<!-- Count Down Start -->
 <div class="count-down-area pt-90 pb-60 section-bg" data-background="./assets/img/gallery/section_bg01.png">
     <div class="container">
         <div class="row justify-content-center">
@@ -89,6 +84,8 @@
     </div>
 </div>
 <!-- Count Down End -->
+
+<app-testimonial></app-testimonial>
 
 <!--must add here testamonial -->
 

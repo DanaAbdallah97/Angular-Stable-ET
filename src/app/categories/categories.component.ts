@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { HomeService } from '../service/home.service';
 
 @Component({
   selector: 'app-categories',
@@ -6,14 +7,18 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent implements OnInit {
-  @Input() categoryid: number | undefined
-  @Input() categoryname: string | undefined
-  @Input() categorydescription: string | undefined
-  @Input() categoryimage: string | undefined
-  @Input() courses: string | undefined
-  constructor() { }
+
+  constructor(private category: HomeService) { }
+  name = 'Parent';
+  currentMsgToChild1 = '';
+
+  categoriesList:any={}
 
   ngOnInit(): void {
+    this.category.getAllCategories().subscribe((result) => {
+      console.warn(result);
+      this.categoriesList = result;
+    })
   }
 
 }
