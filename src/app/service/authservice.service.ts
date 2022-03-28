@@ -97,6 +97,22 @@ export class AuthserviceService {
     );
   }
 
+
+  getAllAccounts() {
+
+    this.http.get('https://localhost:44363/api/Account/GetAccount').subscribe(
+      (res) => {
+        console.log('asdasdasdasdasdasd')
+        console.log(res)
+return res ;        
+
+
+   
+      });
+  }
+
+
+
   createAccount(data: any) {
     this.http
       .post('https://localhost:44363/api/Account/CreateAccount', data)

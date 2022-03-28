@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { HomeService } from '../service/home.service';
 
 @Component({
   selector: 'app-course',
@@ -11,8 +12,22 @@ export class CourseComponent implements OnInit {
 
   currentMsgToParent = '';
   msgFromChild1 = []
+  Allcourse:any={}
+  categoryName :any;
 
-  constructor() { }
+  constructor(private courseAPI: HomeService) 
+  {
+
+    this.courseAPI.getcourse().subscribe((result) => {
+      this.Allcourse = result;
+      console.log(this.Allcourse)
+
+      this.categoryName=this.courseAPI.categoryName;
+    })
+  }
+
+
+
 
   ngOnInit(): void {
   }
