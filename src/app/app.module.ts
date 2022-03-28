@@ -15,6 +15,7 @@ import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toas
 import { tokeninterceptor } from './interceptor/token.interceptor';
 import { CourseComponent } from './course/course.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 
@@ -28,6 +29,7 @@ import { TestimonialComponent } from './testimonial/testimonial.component';
     CategoriesComponent,
     CourseComponent,
     TestimonialComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
