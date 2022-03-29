@@ -15,7 +15,7 @@
                         </div>
                         <div class="course-caption">
                             <div class="course-cap-top">
-                                <h4><a href="#">{{item.coursename}}</a></h4>
+                                <h4 (click)="getCourseId(item.courseid)"><button >{{item.coursename}}</button></h4>
                             </div>
                             <div class="course-cap-mid d-flex justify-content-between">
                                 <div class="course-ratting">

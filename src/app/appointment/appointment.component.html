@@ -1,0 +1,43 @@
+<app-header></app-header>
+
+<h1 *ngFor="let item of courseInformationAppointement" style="color: #2D3092; font-size:40px; margin-top:40px; margin-left:100px">Introduction about {{item.coursename}} Course</h1>
+
+<div *ngFor="let item of courseInformationAppointement" class="col-lg-8 mb-5 mb-lg-0" style="margin-left:80px;margin-top: 40px;">
+  <div *ngFor="let item of courseInformationAppointement" class="blog_left_sidebar">
+    <article class="blog_item">
+      <div class="blog_item_img">
+        <iframe class="card-img rounded-0" width="420" height="315"  [src]="urlVideoCourse" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- teacher name and avatar picture  -->
+        <div>
+          <table>
+            <tr>
+              <td><img src="../../assets/TeachersImages/T1.jpg" style="  vertical-align: middle;width: 50px;height: 50px;border-radius: 50%;"></td>
+              <td><h1 *ngFor="let item of courseInformationAppointement" style="color: #030431; font-size:40px; margin-top:20px; margin-left:5px;">{{item.coursename}} Teacher Name</h1></td>
+            </tr>
+          </table>
+          <tr>
+            <td><div style="margin-left: 65px;"> Rate:</div> </td>
+            <td>      
+              <div  class="course-cap-mid d-flex justify-content-between">
+              <div style="margin-top: 10px; margin-left: 10px;" class="course-ratting">
+                  <i *ngFor="let item of courseRateCounter" style="color: #ffd400; margin-left: 3px;"  class="fas fa-star"></i>
+              </div>
+              </div>
+        </td>
+          </tr>
+        </div>
+      </div>
+  
+        <a style="margin-top: 15px; color: #3f3e3e;" class="d-inline-block">
+          <h2 class="blog-head" style="color: #3f3e3e;"><u style="color:#3f3e3e">Description about {{item.coursename}}</u></h2>
+        </a>
+        <p>{{item.coursedescription}}</p>
+        <ul class="blog-info-link">
+          <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
+          <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+        </ul>
+
+    </article>
+  </div>
+</div>
+<app-footer></app-footer>

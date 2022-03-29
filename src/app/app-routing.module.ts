@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { AdminModule } from './admin/admin.module';
+import { AppointmentComponent } from './appointment/appointment.component';
 import { AuthModule } from './auth/auth.module';
 import { ConcatusComponent } from './concatus/concatus.component';
 import { CourseComponent } from './course/course.component';
@@ -38,8 +39,12 @@ component:HomeComponent
 {
   path: 'course',
   component: CourseComponent
-}
+},
 
+{
+  path: 'appointment',
+  component: AppointmentComponent
+}
 
 // {
 //   path:'shared',

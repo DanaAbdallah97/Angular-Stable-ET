@@ -16,6 +16,7 @@ import { tokeninterceptor } from './interceptor/token.interceptor';
 import { CourseComponent } from './course/course.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { AppointmentComponent } from './appointment/appointment.component';
 
 
 
@@ -30,6 +31,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     CourseComponent,
     TestimonialComponent,
     SpinnerComponent,
+    AppointmentComponent,
   ],
   imports: [
     BrowserModule,
