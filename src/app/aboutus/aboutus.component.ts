@@ -13,6 +13,8 @@ export class AboutusComponent implements OnInit {
   descriptionAboutus:any={}
 
   ngOnInit(): void {
+
+    
     this.aboutus.getAboutUs().subscribe((result) => {
       console.warn(result);
       this.descriptionAboutus = result;

@@ -11,6 +11,8 @@ export class AboutUsService {
 
 
   constructor(private http:HttpClient, private toaster:ToastrService) { }
+
+  
   getAboutUs(){
     return this.http.get(this.urlGetAboutus);
   }

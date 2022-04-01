@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HomeService } from '../service/home.service';
 
 @Component({
@@ -8,9 +9,9 @@ import { HomeService } from '../service/home.service';
 })
 export class CategoriesComponent implements OnInit {
 
-  constructor(private category: HomeService) { }
-  name = 'Parent';
-  currentMsgToChild1 = '';
+  constructor(private category: HomeService, private router:Router) { }
+  // name = 'Parent';
+  // currentMsgToChild1 = '';
 
   categoriesList:any={}
 
@@ -19,6 +20,14 @@ export class CategoriesComponent implements OnInit {
       console.warn(result);
       this.categoriesList = result;
     })
+  }
+
+  getCourseByCategory(id : number, courseName:string)
+  {
+    this.category.categoryid=id
+    this.category.categoryName=courseName;
+    // localStorage.setItem('categoryid',id.toString());
+    this.router.navigate(['course']);
   }
 
 }
