@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admindashboard',
@@ -7,11 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdmindashboardComponent implements OnInit {
 
-  constructor() { 
+  constructor(private router : Router) { 
   }
-  
-
   ngOnInit(): void {
   }
 
+
+ 
+  manageCategory(){
+    this.router.navigate(['admin/managecategory']);
+  }
+ 
+  logout(){
+    localStorage.clear();
+    this.router.navigate(['auth/login']) ;
+  }
 }

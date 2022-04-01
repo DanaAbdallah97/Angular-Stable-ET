@@ -16,6 +16,9 @@ import { tokeninterceptor } from './interceptor/token.interceptor';
 import { CourseComponent } from './course/course.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { AuthModule } from './auth/auth.module';
+
+
 
 
 
@@ -30,6 +33,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     CourseComponent,
     TestimonialComponent,
     SpinnerComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -45,6 +49,11 @@ import { SpinnerComponent } from './spinner/spinner.component';
       preventDuplicates:true,
     }),
     FormsModule,
+  ],
+  exports:[
+    SharedModule,
+    AuthModule
+    
   ],
   providers: [
     {

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import jwt_decode from 'jwt-decode';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Injectable({
@@ -12,7 +12,11 @@ export class ContactusService {
   urlGetAboutus = 'https://localhost:44363/api/managepage/getManagepage';
 
   
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private toaster:ToastrService) { }
+
+  getallmessages(){
+    return this.http.get('https://localhost:44363/api/Message/GetMessage');
+  }
   
   createMessage(data: any) {
     this.http.post(this.urlSendMessage, data)

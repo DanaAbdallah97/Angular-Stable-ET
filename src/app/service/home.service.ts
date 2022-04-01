@@ -26,11 +26,4 @@ export class HomeService {
     return this.http.get('https://localhost:44363/api/Course/GetCourseBasedCategory/'+this.categoryid);
          
     }
-
-
-
-  
-
-
-
 }

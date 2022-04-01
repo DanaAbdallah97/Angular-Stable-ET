@@ -30,6 +30,7 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     FormsModule
   
-  ]
+  ],
+ 
 })
 export class AuthModule { }

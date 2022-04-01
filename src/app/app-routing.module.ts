@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { AdminModule } from './admin/admin.module';
 import { AuthModule } from './auth/auth.module';
+import { AuthguardGuard } from './authguard.guard';
 import { ConcatusComponent } from './concatus/concatus.component';
 import { CourseComponent } from './course/course.component';
 import { HomeComponent } from './home/home.component';
@@ -20,7 +21,7 @@ const routes: Routes = [
 },
 {
   path:'home',
-  component:HomeComponent
+  component:HomeComponent,
 },
 {
 path:'',
@@ -32,9 +33,16 @@ component:HomeComponent
 },
 {
   path:'admin',
-  loadChildren:()=>AdminModule
+  loadChildren:()=>AdminModule,
+  //canActivate:[AuthguardGuard]
 },
 
+
+// {
+//   path:'teacher',
+//   loadChildren:()=>,
+//   canActivate:[AuthguardGuard]
+// },
 {
   path: 'course',
   component: CourseComponent
