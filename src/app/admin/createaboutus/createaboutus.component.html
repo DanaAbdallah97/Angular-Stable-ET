@@ -1,0 +1,73 @@
+<h2 mat-dialog-title>Add about us</h2>
+<mat-dialog-content class="mat-typography">
+ 
+
+    <form class="example-form" [formGroup]="createForm">
+        <ul>
+            <li>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>aboutus text</mat-label>
+           <input type="text" matInput formControlName="aboutustext" placeholder="aboutus text">
+          <mat-error *ngIf="createForm.controls['aboutustext'].hasError('required')">
+            aboutus text is <strong>required</strong>
+          </mat-error> 
+        </mat-form-field>
+    </li>
+
+    <li>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>aboutus email </mat-label>
+             <input type="text" matInput formControlName="aboutusemail" placeholder="aboutus email">
+            <mat-error *ngIf="createForm.controls['aboutusemail'].hasError('required')">
+                aboutus email   is <strong>required</strong>
+            </mat-error> 
+          </mat-form-field>
+        </li>
+
+        <li>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>aboutus phone </mat-label>
+                 <input type="text" matInput formControlName="aboutusphone" placeholder="aboutus phone">
+                <mat-error *ngIf="createForm.controls['aboutusphone'].hasError('required')">
+                    aboutus phone  is <strong>required</strong>
+                </mat-error> 
+              </mat-form-field>
+            </li>
+
+            <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>aboutus adders </mat-label>
+                     <input type="text" matInput formControlName="aboutusadders" placeholder="aboutus adders">
+                    <mat-error *ngIf="createForm.controls['aboutusadders'].hasError('required')">
+                        aboutus adders  is <strong>required</strong>
+                    </mat-error> 
+                  </mat-form-field>
+                </li>
+
+
+                <!-- <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>background description </mat-label>
+                         <input type="text" matInput formControlName="background" placeholder="background">
+                        <mat-error *ngIf="createForm.controls['background'].hasError('required')">
+                            background  is <strong>required</strong>
+                        </mat-error> 
+                      </mat-form-field>
+                    </li> -->
+
+                   <li>
+                      <input type="file" #file placeholder="choose img" 
+                      formControlName="background" (change)="uploadimg(file.files)" style="display: none;">
+                      <button class="btn btn-info" (click)="file.click()">Upload</button>
+                    </li>
+
+                    
+        </ul>
+      </form>
+
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" [disabled]="!createForm.valid" cdkFocusInitial (click)="save()">Save</button>
+</mat-dialog-actions>
