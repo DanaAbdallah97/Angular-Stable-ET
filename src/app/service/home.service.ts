@@ -23,7 +23,19 @@ export class HomeService {
   }
 
   getcourse() {
-    return this.http.get('https://localhost:44363/api/Course/GetCourseBasedCategory/'+this.categoryid);
-         
+    return this.http.get('https://localhost:44363/api/Course/GetCourseBasedCategory/'+this.categoryid);         
     }
+
+
+  getBackground(){
+    return this.http.get('https://localhost:44363/api/managepage/getManagepage');
+  }
+
+
+
+  
+
+
+
+
 }
