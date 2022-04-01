@@ -22,7 +22,7 @@ export class CourseService {
 
 
   getCourseInformationById(){
-        return this.http.get(this.urlCourseById+1);
+        return this.http.get(this.urlCourseById+this.courseid);
   
 }
 
