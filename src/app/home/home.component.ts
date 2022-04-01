@@ -8,14 +8,22 @@ import { HomeService } from '../service/home.service';
 })
 export class HomeComponent implements OnInit {
 
+mangePage:any={};
+background:any;
 
   constructor(public home:HomeService) { 
-
+    this.home.getBackground().subscribe((result)=>{
+       this.mangePage=result;
+       console.log('mangePage')
+       console.log(this.mangePage)
+    })
   }
 
 
   ngOnInit(): void {
-    
+this.background=this.mangePage[0].background;    
+// console.log('backkkkkkkkkkk')
+// console.log(this.background);
   }
 
 }

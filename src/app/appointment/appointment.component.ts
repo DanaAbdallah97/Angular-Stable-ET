@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from '../service/course.service';
 import {DomSanitizer,SafeResourceUrl,} from '@angular/platform-browser';
+import { AppointmentService } from '../service/appointment.service';
 
 
 @Component({
@@ -14,10 +15,13 @@ courseInformationAppointement :any={};
 urlVideoCourse: SafeResourceUrl | undefined;
 courseRate:any;
 courseRateCounter:any=[];
+appointmentid = 9999
+courseid:any;
+endDate="1997-07-14";
+appointmentstatus='waiting'
 
-
-
-  constructor(private course:CourseService ,public sanitizer:DomSanitizer ) { 
+  constructor(private course:CourseService ,public sanitizer:DomSanitizer, public appointment: AppointmentService,
+    ) { 
     this.course.getCourseInformationById().subscribe((result)=>{
       console.log('this.courseInformation');
       this.courseInformationAppointement=result;
@@ -25,6 +29,7 @@ courseRateCounter:any=[];
 
       this.urlVideoCourse = this.sanitizer.bypassSecurityTrustResourceUrl(this.courseInformationAppointement[0].coursevideo);      
       this.courseRate = this.courseInformationAppointement[0].courserate;      
+      this.courseid=this.courseInformationAppointement[0].courseid;  
  
       for (let index = 0; index <this.courseRate ; index++) {
         this.courseRateCounter[index]='*';
@@ -32,6 +37,15 @@ courseRateCounter:any=[];
 
 
     });
+
+  }
+
+  onSubmit(data: any) {
+    console.warn(data);
+    this.appointment.createAppointment(data);
+    // this.router.navigate(['contact']).then(() => {
+    //   window.location.reload();
+    // });
 
   }
 
