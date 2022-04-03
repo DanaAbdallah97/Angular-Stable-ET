@@ -14,28 +14,33 @@ export class CourseComponent implements OnInit {
 
   currentMsgToParent = '';
   msgFromChild1 = []
-  Allcourse:any={}
-  categoryName :any;
-  
+  Allcourse: any = {}
+  categoryName: any;
+  TeacherName: any = [];
+  rate:number=5;
 
 
-  constructor(private courseAPI: HomeService,private courseSerice:CourseService,private router:Router) 
-  {
+  constructor(private courseAPI: HomeService, private courseSerice: CourseService, private router: Router) {
 
     this.courseAPI.getcourse().subscribe((result) => {
       this.Allcourse = result;
       console.log(this.Allcourse)
-      this.categoryName=this.courseAPI.categoryName;
+      this.categoryName = this.courseAPI.categoryName;
+
+      this.courseSerice.getTeacherName().subscribe((resultTeacher) => {
+        this.TeacherName = resultTeacher;
+
+      })
     })
   }
 
-  getCourseId(id:any)
-  {
+  getCourseId(id: any) {
     this.courseSerice.getCourseId(id);
     this.router.navigate(['appointment']);
   }
 
-  
+
+
   ngOnInit(): void {
   }
 

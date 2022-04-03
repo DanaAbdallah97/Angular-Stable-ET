@@ -30,6 +30,14 @@ createaboutus(body:any){
     });
     window.location.reload();
 
+
+  constructor(private http:HttpClient, private toaster:ToastrService) { 
+
+    console.log('localStorage.getItem()');
+
+console.log(localStorage.getItem('IdAccount'));
+
+  }
 }
 
 updateABoutUs(body:any){   

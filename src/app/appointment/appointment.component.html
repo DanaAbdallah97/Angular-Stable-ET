@@ -18,14 +18,13 @@
           allowfullscreen></iframe>
         <!-- teacher name and avatar picture  -->
         <div>
-          <table>
-            <tr>
-              <td><img src="../../assets/TeachersImages/T1.jpg"
+          <table *ngFor="let itemName of TeacherName">
+            <tr *ngIf="(item.acoountid == itemName.acoountid)">
+              <td><img  src="./assets/img/{{itemName.profilepicture}}"
                   style="  vertical-align: middle;width: 50px;height: 50px;border-radius: 50%;"></td>
               <td>
                 <h1 *ngFor="let item of courseInformationAppointement"
-                  style="color: #030431; font-size:30px; margin-top:20px; margin-left:5px;">{{item.coursename}} Teacher
-                  Name</h1>
+                  style="color: #030431; font-size:30px; margin-top:20px; margin-left:5px;">{{item.coursename}} by {{itemName.firstname}}</h1>
               </td>
             </tr>
           </table>
@@ -59,7 +58,7 @@
 
 <td >
   <br>
-  <div style="background-color:#bcdfff; position: absolute; margin-left: 100px; align-items: center; border-radius:2% ; margin-top:-300px; margin-right: 20px;  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.4);">
+  <div style="background-color:#bcdfff; position: absolute; margin-left: -240px; align-items: center; border-radius:2% ; margin-top:-300px; margin-right: 20px;  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.4);">
     <br>
     <br>
     <h1 style="color: #2D3092; font-size:30px;  margin-left: 30px;">Create Appointement</h1>
