@@ -21,6 +21,11 @@ export class CourseService {
   }
 
 
+  getTeacherName(){
+
+    return this.http.get('https://localhost:44363/api/Account/GetTeacher/')
+  }
+
   getCourseInformationById(){
         return this.http.get(this.urlCourseById+this.courseid);
   

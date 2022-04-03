@@ -1,44 +1,55 @@
         <app-header></app-header>
 
-<!-- <div *ngFor="let item of Allcourse">
+        <!-- <div *ngFor="let item of Allcourse">
 <h1 style="color: black;">{{item.coursename}}</h1>
 </div> -->
-<h2 _ngcontent-tfu-c81="" style="color:#030431; font-size: 350%; margin-left: 600px; margin-top:50px">{{categoryName}}</h2>
-    <div class="popular-course section-padding30 " style="margin-top: -100px;">
-        <div class="container">
-            <div  class="row">
-                <div *ngFor="let item of Allcourse" class="col-xl-4 col-lg-4 col-md-6">
-                    <!-- Single course -->
-                    <div class="single-course mb-40">
-                        <div class="course-img">
-                            <img src="assets/img/gallery/popular_sub1.png" alt="">
+        <h2 _ngcontent-tfu-c81="" style="color:#030431; font-size: 350%; margin-left: 580px; margin-top:50px">
+          {{categoryName}}</h2>
+        <div class="popular-course section-padding30 " style="margin-top: -100px;">
+          <div class="container">
+            <div class="row">
+              <div *ngFor="let item of Allcourse" class="col-xl-4 col-lg-4 col-md-6">
+                <!-- Single course -->
+                <div class="single-course mb-40">
+                  <div class="course-img">
+                    <img src="./assets/img/{{item.courseimage}}" alt="">
+                  </div>
+
+                  <div  class="course-caption" style="border-style: groove; border-width: thin;">
+                    <div class="course-cap-top">
+                      <h4 style="color: #030431; font-weight:100px ;font-size: 30px;">{{item.coursename}}</h4>
+                      <div class="course-cap-mid d-flex justify-content-between">
+                        <div class="course-ratting">
+                          <i *ngFor="let _ of [].constructor(5)" style="color: #ffd400; margin-left: 3px;"
+                            class="fas fa-star"></i>
                         </div>
-                        <div class="course-caption">
-                            <div class="course-cap-top">
-                                <h4 (click)="getCourseId(item.courseid)"><button >{{item.coursename}}</button></h4>
-                            </div>
-                            <div class="course-cap-mid d-flex justify-content-between">
-                                <div class="course-ratting">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <ul><li>52 Review</li></ul>
-                            </div>
-                            <div class="course-cap-bottom d-flex justify-content-between">
-                                <ul>
-                                    <li><i class="ti-user"></i> 562</li>
-                                    <li><i class="ti-heart"></i> 562</li>
-                                </ul>
-                                <span>Free</span>
-                            </div>
-                        </div>
+                      </div>
+                      <table *ngFor="let itemName of TeacherName" >
+                        <tr>
+                          <td><img *ngIf="(item.acoountid == itemName.acoountid)"
+                              src="./assets/img/{{itemName.profilepicture}}"
+                              style="  vertical-align: middle;width: 40px;height: 40px;border-radius: 50%;"></td>
+                          <td>
+                            <h4 *ngIf="(item.acoountid == itemName.acoountid)"
+                              style="color: #030431; font-weight:100px ;font-size: 23px; margin-top:20px">
+                              {{itemName.firstname}} {{itemName.lastname}}</h4>
+
+                          </td>
+                        </tr>
+                      </table>
+
                     </div>
+
+                    <div class="course-cap-bottom d-flex justify-content-between">
+                        <h4 (click)="getCourseId(item.courseid)"><button class="genric-btn primary small">Make
+                            Appointment</button></h4>
+
+                    </div>
+                  </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 col-md-6">
-                </div>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-6">
+              </div>
             </div>
+          </div>
         </div>
-    </div>

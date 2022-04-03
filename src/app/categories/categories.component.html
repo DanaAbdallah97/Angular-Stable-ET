@@ -13,8 +13,10 @@
       <div *ngFor="let item of categoriesList" class="col-lg-4 col-md-6 col-sm-6">
         <div class="single-cat mb-50">
           <div class="cat-icon">
-            <span class="flaticon-web-design"></span>
-          </div>
+            <div class="hero-man d-none d-lg-block f-right" data-animation="jello" data-delay=".4s">
+                   <img src="./assets/img/{{item.categoryimage}}" alt="">
+          </div>   
+               </div>
           <div class="cat-cap">
             <h5><a disabled>{{item.categoryname}}</a></h5>
             <p>{{item.categorydescription}}</p>
