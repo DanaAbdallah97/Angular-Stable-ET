@@ -18,6 +18,7 @@ courseRateCounter:any=[];
 appointmentid = 9999
 courseid:any;
 endDate="1997-07-14";
+TeacherName: any = [];
 appointmentstatus='waiting'
 
   constructor(private course:CourseService ,public sanitizer:DomSanitizer, public appointment: AppointmentService,
@@ -34,6 +35,11 @@ appointmentstatus='waiting'
       for (let index = 0; index <this.courseRate ; index++) {
         this.courseRateCounter[index]='*';
       }
+
+      this.course.getTeacherName().subscribe((resultTeacher) => {
+        this.TeacherName = resultTeacher;
+
+      })
 
 
     });

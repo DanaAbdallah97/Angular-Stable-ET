@@ -24,10 +24,21 @@ TestmonialAccount :any= {};
   ngOnInit(): void {
     this.testimonial.getTestmonial().subscribe((result) => {
       console.warn(result);
-      this.AllTestimonial = result;
+     this.AllTestimonial = result;
      this.FirstComment= this.AllTestimonial[this.AllTestimonial.length-1].testmonialcomment;
+     this.p1='79a87c48-96a4-43e4-86e2-838056d185d9_student1.jpg'
+
+
+
      this.SecoundComment= this.AllTestimonial[this.AllTestimonial.length-2].testmonialcomment;
+     this.p2= '1e7fa72d-e45d-4340-8129-35f9de4bc87f_T1.jpg'
+
+
+
      this.TheredComment= this.AllTestimonial[this.AllTestimonial.length-3].testmonialcomment;
+     this.p3= '38ae1d1d-c805-4f39-bb90-f8821ede5231_AhmadAli.jpg'
+
+
     })
 
     // console.log('TestmonialAccount')

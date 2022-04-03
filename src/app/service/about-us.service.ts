@@ -10,7 +10,13 @@ export class AboutUsService {
   urlGetAboutus = 'https://localhost:44363/api/managepage/getManagepage';
 
 
-  constructor(private http:HttpClient, private toaster:ToastrService) { }
+  constructor(private http:HttpClient, private toaster:ToastrService) { 
+
+    console.log('localStorage.getItem()');
+
+console.log(localStorage.getItem('IdAccount'));
+
+  }
 
   
   getAboutUs(){
