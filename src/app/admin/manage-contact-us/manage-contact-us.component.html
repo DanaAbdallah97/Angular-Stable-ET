@@ -1,0 +1,40 @@
+<div class="container-fluid pt-4 px-4">
+    <div class="bg-light text-center rounded p-4" style="margin-left:20%;">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <!-- <button class="bt btn-success" (click)="createcategory()">Create Category</button> -->
+        </div>
+        <div class="table-responsive">
+            <table class="table text-start align-middle table-bordered table-hover mb-0">
+                <thead>
+                    <tr class="text-dark">
+                        <th scope="col">Message Subject </th>
+                        <th scope="col">Message Body </th>
+                        <th scope="col">Message Sender status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let obj of allMessages">
+                        <td>{{obj.subject}}</td>
+                        <td>{{obj.messagebody}}</td>
+                        <td>{{obj.senderemail}}</td>
+                        <!-- <td><button class="btn btn-sm btn-info"
+                            (click)="openUpdateDialog(obj.testmonialid ,obj.testmonialcomment , obj.rate, obj.testmonialstatus, obj.acoount)">"
+                            Edit</button></td> -->
+                    <!-- <td><button class="btn btn-sm btn-danger"
+                            (click)="openDeleteDialog(obj.testmonialid)">Delete</button></td> -->
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<app-admindashboard></app-admindashboard>
+<ng-template #callDeleteDialog>
+    <h2> are you sure you want to delete this abouts us ?</h2>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close="no">Cancel</button>
+        <button mat-button mat-dialog-close="yes">Delete</button>
+    </mat-dialog-actions>
+</ng-template>

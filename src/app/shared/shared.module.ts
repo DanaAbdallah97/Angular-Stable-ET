@@ -9,6 +9,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { AppModule } from '../app.module';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatRadioModule
+    MatRadioModule,
+    MatDialogModule
   
   ],
   exports:[
@@ -35,7 +37,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatButtonModule,
     HeaderComponent,
     FooterComponent,
-    MatRadioModule
+    MatRadioModule,
+    MatDialogModule
   ]
 })
 export class SharedModule { }
