@@ -16,11 +16,10 @@ export class CategoryService {
 
 createcategory(data:any){
   //this.spinner.show();
-  debugger;
+
   data.image_path=this.display_image;
   this.http.post('https://localhost:44363/api/category/createcategory',data).subscribe(
     (res:any)=>{
-      debugger;
      // this.spinner.hide();
     this.toaster.success('Saved succefully')
   }, err=>{
