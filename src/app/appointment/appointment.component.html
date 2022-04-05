@@ -76,13 +76,21 @@
         <h4 class="blog-head" style="color: #3f3e3e;">Select the hour that suits you:</h4>
         <select style="background-color:white" class="form-control" name="houre" ngModel>
           <option value="" disabled selected hidden>Choose hour ...</option>
-          <option class="form-control" value=1>1</option>
-          <option class="form-control" value=2>2</option>
+          <option class="form-control" value="9">9 Am</option>
+          <option class="form-control" value="10">10 Am</option>
+          <option class="form-control" value="11">11 Am</option>
+          <option class="form-control" value="12">12 Am</option>
+          <option class="form-control" value="1">1 Pm</option>
+          <option class="form-control" value="2">2 Pm</option>
+          <option class="form-control" value="3">3 Pm</option>
+          <option class="form-control" value="4">4 Pm</option>
+
         </select> <br />
   
         <!-- account id -->
-        <input class="form-control" type="number" name="acoountid" ngModel placeholder="acoountid" /> <br>
-  
+        <input class="form-control" type="number" name="acoountid" ngModel placeholder="id" [value]="acoountidAppointment"
+          [(ngModel)]="acoountidAppointment" hidden />  
+
         <input class="form-control" type="date" name="enddate" ngModel placeholder="enddate" [value]="endDate"
           [(ngModel)]="endDate" hidden />
   

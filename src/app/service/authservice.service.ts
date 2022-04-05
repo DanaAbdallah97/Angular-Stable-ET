@@ -72,7 +72,7 @@ export class AuthserviceService {
           this.router.navigate(['admin/teacherdashboard']);
         } else if (data.role == 'Student') {
           // link sudent with pages
-          this.router.navigate(['Sudent']);
+          this.router.navigate(['/home']);
         }
       });
     // }),err => {
