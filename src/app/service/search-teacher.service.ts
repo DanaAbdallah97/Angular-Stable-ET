@@ -17,6 +17,9 @@ console.log(this.TName);
 
 
 setTeacherId(teacherid:any){
+
+  localStorage.setItem('IdTeacherSearch',teacherid);
+
   this.IdTeacherSearch=teacherid;
   console.log('setTeacherId')
   console.log(this.IdTeacherSearch)
