@@ -10,11 +10,14 @@ import {MatButtonModule} from '@angular/material/button';
 import { AppModule } from '../app.module';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatDialogModule} from '@angular/material/dialog';
+import { SearchButtonComponent } from './search-button/search-button.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SearchButtonComponent
+
   ],
   imports: [
     CommonModule,
@@ -25,7 +28,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatInputModule,
     MatButtonModule,
     MatRadioModule,
-    MatDialogModule
+    MatDialogModule,
   
   ],
   exports:[
@@ -38,7 +41,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     HeaderComponent,
     FooterComponent,
     MatRadioModule,
-    MatDialogModule
+    MatDialogModule,
+    SearchButtonComponent
+
   ]
 })
 export class SharedModule { }

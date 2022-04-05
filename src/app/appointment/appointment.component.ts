@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CourseService } from '../service/course.service';
 import {DomSanitizer,SafeResourceUrl,} from '@angular/platform-browser';
 import { AppointmentService } from '../service/appointment.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,12 +17,15 @@ urlVideoCourse: SafeResourceUrl | undefined;
 courseRate:any;
 courseRateCounter:any=[];
 appointmentid = 9999
+
+accountid:any=localStorage.getItem('IdAccount');
+acoountidAppointment :number= parseInt(this.accountid)
 courseid:any;
 endDate="1997-07-14";
 TeacherName: any = [];
 appointmentstatus='waiting'
 
-  constructor(private course:CourseService ,public sanitizer:DomSanitizer, public appointment: AppointmentService,
+  constructor(private course:CourseService ,public sanitizer:DomSanitizer, public appointment: AppointmentService,private router:Router,
     ) { 
     this.course.getCourseInformationById().subscribe((result)=>{
       console.log('this.courseInformation');
@@ -49,9 +53,9 @@ appointmentstatus='waiting'
   onSubmit(data: any) {
     console.warn(data);
     this.appointment.createAppointment(data);
-    // this.router.navigate(['contact']).then(() => {
-    //   window.location.reload();
-    // });
+    this.router.navigate(['/home']).then(() => {
+      window.location.reload();
+    });
 
   }
 
