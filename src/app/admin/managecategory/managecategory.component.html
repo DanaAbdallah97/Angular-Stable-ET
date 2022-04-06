@@ -1,27 +1,31 @@
 <!-- Recent Sales Start -->
 <div class="container-fluid pt-4 px-4">
     <div class="bg-light text-center rounded p-4" style="margin-left:20%;">
+        <h1 style="color: #1f2b7b;margin-left: -89%; font-weight: bold;">Category</h1>
         <div class="d-flex align-items-center justify-content-between mb-4">
-            <button class="bt btn-success" (click)="createcategory()">Create Category</button>
+            <button class="btn btn-Secondary" style="background-color: #1f2b7b !important;color: white;"(click)="createcategory()">Create Category</button>
         </div>
         <div class="table-responsive">
             <table class="table text-start align-middle table-bordered table-hover mb-0">
                 <thead>
-                    <tr class="text-dark">
+                    <tr class="text-dark" style="color:#1f2b7b!important">
 
                         <th scope="col">Category Name</th>
-                        <th scope="col">Category Descriptiom</th>
+                        <th scope="col">Category Description</th>
+                        <th scope="col">Category Image</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let obj of categoriesList">
                         <td>{{obj.categoryname}}</td>
                         <td>{{obj.categorydescription}}</td>
-                        <td><button class="btn btn-sm btn-info"
-                            (click)="openUpdateDialog(obj.categoryid, obj.categoryname, obj.categorydescription, obj.categoryimage, obj.courses)">
+                        <td>
+                            <img src="./assets/img/{{obj.categoryimage}}" style="width:25%;height: 25%;">
+                        </td>
+                        <td><button class="btn btn-sm btn-secondary"
+                            (click)="openUpdateDialog(obj.categoryid, obj.categoryname, obj.categorydescription, obj.categoryimage)">
                             Edit</button></td>
-                    <td><button class="btn btn-sm btn-danger"
-                            (click)="openDeleteDialog(obj.categoryid)">Delete</button></td>
+                    <td><button class="btn btn-sm btn-danger" (click)="openDeleteDialog(obj.categoryid)">Delete</button></td>
                     </tr>
 
                 </tbody>
@@ -38,21 +42,26 @@
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>enter the category name </mat-label>
-                        <input type="text" matInput formControlName="categoryname" [(ngModel)]="previousData.categoryname"
-                            placeholder="enter the category name">
+                        <input type="text" matInput formControlName="categoryname" [(ngModel)]="previousData.categoryname" placeholder="enter the category name">
                     </mat-form-field>
                 </li>
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>enter the category description </mat-label>
-                        <input type="text" matInput formControlName="categorydescription"
-                            [(ngModel)]="previousData.categorydescription" placeholder="enter the categorydescription">
+                        <input type="text" matInput formControlName="categorydescription" [(ngModel)]="previousData.categorydescription" placeholder="enter the categorydescription">
                     </mat-form-field>
                 </li>
-               
+                <li>
+                    <input type="file" #file placeholder="Choose Image" 
+                    formControlName="categoryimage" [(ngModel)]="previousData.categoryimage" (change)="uploadImage(file.files)" 
+                    style="display: none;">
+                    <button (click)="file.click()" class="btn btn-secondary">Upload Image</button>
+                </li>   
              
             </ul>
-            <button class="btn btn-success">update</button>
+            <button class= "btn btn-secondary"style="background-color: #1f2b7b;">update</button>
+
+            
 
         </form>
 

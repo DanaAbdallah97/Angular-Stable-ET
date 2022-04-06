@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -19,7 +20,9 @@ export class ManagecategoryComponent implements OnInit {
 
   categoriesList:any={}
   previousData:any={}
-  constructor(private dialog:MatDialog,public home :HomeService,private catetgory : CategoryService)  {}
+  selectedFile: any;
+  P_picture: any;
+  constructor(private http :HttpClient, private dialog:MatDialog,public home :HomeService,private catetgory : CategoryService)  {}
    
   ngOnInit(): void {   
     this.home.getAllCategories().subscribe((result) => {
@@ -41,23 +44,23 @@ export class ManagecategoryComponent implements OnInit {
       courses:new FormControl(),
     }
   )
-  openUpdateDialog(categoryid1:any, categoryname1:any, categorydescription1:any, categoryimage1:any, courses1:any)
+  openUpdateDialog(categoryid1:any, categoryname1:any, categorydescription1:any, categoryimage1:any)
   {   
       this.previousData={
         categoryid:categoryid1,
         categoryname:categoryname1,
         categorydescription:categorydescription1,
-        categoryimage:categoryimage1,
-        courses:courses1
+        categoryimage:categoryimage1
       }    
     this.updatForm.controls['categoryid'].setValue(categoryid1);
     this.dialog.open(this.callUpdateDialog)
   }
 
   updatecategory(){
-    this.catetgory.updatecategory(this.updatForm.value);
+    debugger
+    this.catetgory.updatecategory(this.updatForm.value);    
     console.log(this.previousData);
-    window.location.reload();
+    //window.location.reload();
   }
 
   openDeleteDialog(categoryid :any){
@@ -71,4 +74,31 @@ export class ManagecategoryComponent implements OnInit {
       }
     })
    }
+
+
+   onFileSelected(event: any) {
+    this.selectedFile = <File>event.target.files[0];
+    const fd = new FormData();
+    fd.append('image', this.selectedFile, this.selectedFile.name);
+
+    this.P_picture = this.selectedFile.name;
+
+    this.http.post('https://localhost:44363/api/category/UploadImage', fd).subscribe(res => {
+      // console.log(res);
+    });
+    this.catetgory.updatecategory(this.updatForm.value);
+  }
+
+  
+  
+
+   uploadImage(file:any){
+    debugger
+    if(file.length===0)
+    return;
+    const uploadfile=<File>file[0];   
+    const formData=new FormData();
+    formData.append('file',uploadfile,uploadfile.name);
+    this.catetgory.uploadAttachment(formData);
+  }
 }

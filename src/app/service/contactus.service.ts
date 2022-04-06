@@ -31,4 +31,13 @@ export class ContactusService {
   {
     return this.http.get(this.urlGetAboutus);
   }
+  
+  sendemailcontact(data:any){
+    debugger;
+    this.http.post('https://localhost:44363/api/jwt/SendEmail/',data).subscribe(
+      (res:any)=>{
+        debugger;
+    }, err=>{
+      });
+  }
 }

@@ -17,7 +17,7 @@ export class CreatecategoryComponent implements OnInit {
 
     categoryname : new FormControl('',Validators.required),
     categorydescription: new FormControl('',Validators.required),
-    //categoryimage: new FormControl('',Validators.required),
+    categoryimage: new FormControl(),
    // courses : new FormControl()
  })
    constructor(private cats : CategoryService) { }
@@ -25,5 +25,15 @@ export class CreatecategoryComponent implements OnInit {
    save(){
        this.cats.createcategory(this.createForm.value);
    }
+   uploadimg(file:any){
+    debugger
+     if(file.length === 0)
+     return ;
+     const uploadfile = <File>file[0];
+     const formData = new FormData();
+     formData.append('file',uploadfile,uploadfile.name);
+     this.cats.uploadAttachment(formData);
+  }
+//   onF
 
 }

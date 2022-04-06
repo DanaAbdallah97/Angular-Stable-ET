@@ -48,7 +48,7 @@ export class ManagePageComponent implements OnInit {
 
    
   // }
-  openUpdateDialog(managepageid1:any,aboutustext1:any,aboutusphone1:any,aboutusemail1:any,aboutusadders1:any,background1:any)
+  openUpdateDialog(managepageid1:any,aboutustext1:any,aboutusphone1:any,aboutusemail1:any,aboutusadders1:any)
   {   
       this.previousData={
         managepageid:managepageid1,
@@ -56,7 +56,7 @@ export class ManagePageComponent implements OnInit {
         aboutusphone:aboutusphone1,
         aboutusemail:aboutusemail1,
         aboutusadders:aboutusadders1,
-        background:background1
+       // background:background1
       }    
     this.updatForm.controls['managepageid'].setValue(managepageid1);
     this.dialog.open(this.callUpdateDialog)
@@ -70,7 +70,7 @@ export class ManagePageComponent implements OnInit {
       aboutusphone:new FormControl(),
       aboutusemail:new FormControl(),
       aboutusadders:new FormControl(),
-      background:new FormControl()
+    //  background:new FormControl()
     }
   )
 
