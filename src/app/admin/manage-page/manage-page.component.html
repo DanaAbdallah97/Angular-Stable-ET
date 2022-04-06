@@ -4,18 +4,19 @@
     <!-- Recent Sales Start -->
     <div class="container-fluid pt-4 px-4">
         <div class="bg-light text-center rounded p-4">
-            <div class="d-flex align-items-center justify-content-between mb-4">
+            <h1 style="color: #1f2b7b;margin-left: -89%; font-weight: bold;">About Us</h1>
+            <!-- <div class="d-flex align-items-center justify-content-between mb-4">
                  <button class="bt btn-success" (click)="createaboutus()">Create About Us</button> 
-            </div>
+            </div> -->
             <div class="table-responsive">
                 <table class="table text-start align-middle table-bordered table-hover mb-0">
                     <thead>
-                        <tr class="text-dark">
+                        <tr class="text-dark" style="color:#1f2b7b!important">
                             <th scope="col">Text</th>
                             <th scope="col">Phone</th>
                             <th scope="col">Email</th>
                             <th scope="col">Address</th>
-                            <th scope="col">Background</th>
+                            <!-- <th scope="col">Background</th> -->
                             <!-- <th scope="col ">Action</th> -->
                         </tr>
                     </thead>
@@ -24,14 +25,14 @@
                         <td>{{item.aboutusphone}}</td>
                         <td>{{item.aboutusemail}}</td>
                         <td>{{item.aboutusadders}}</td>
-                        <td>
+                        <!-- <td>
                             <img src="../../../assets/img/{{item.background}}" style="width:50%;height: 50%;">
-                        </td>
-                        <td><button class="btn btn-sm btn-info"
-                                (click)="openUpdateDialog(item.managepageid,item.aboutustext,item.aboutusphone,item.aboutusemail,item.aboutusadders,item.background)">
+                        </td> -->
+                        <td><button class="btn btn-sm btn-secondary" style="background-color: gray !important;"
+                                (click)="openUpdateDialog(item.managepageid,item.aboutustext,item.aboutusphone,item.aboutusemail,item.aboutusadders)">
                                 Edit</button></td>
-                        <td><button class="btn btn-sm btn-danger"
-                                (click)="openDeleteDialog(item.managepageid)">Delete</button></td>
+                        <!-- <td><button class="btn btn-sm btn-danger" style="background-color:#c82333"
+                                (click)="openDeleteDialog(item.managepageid)">Delete</button></td> -->
                     </tr>
 
                 </table>
@@ -71,16 +72,9 @@
                 <mat-label>enter the about us adderss </mat-label>
                 <input type="text" matInput formControlName="aboutusadders" [(ngModel)]="previousData.aboutusadders" placeholder="enter the about us adderss">
             </mat-form-field>
-        </li>
-        <li>
-            <input type="file" #file placeholder="Choose Image" 
-            formControlName="background" [(ngModel)]="previousData.background" (change)="uploadImage(file.files)" 
-            style="display: none;">
-            <button (click)="file.click()" class="btn btn-success">Upload Image</button>
-        </li>
+        </li>        
     </ul>
-        <button>update </button>
-    
+        <button class="btn btn-success" style="background-color:#1f2b7b!important">update </button>    
     </form>
 
  </ng-template>

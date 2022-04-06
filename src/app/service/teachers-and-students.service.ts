@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TeachersAndStudentsService {
   data:any=[{}];
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private toaster:ToastrService) { }
   getAllTeachers(){
     debugger
     return this.http.get('https://localhost:44363/api/account/getteacher');
@@ -28,15 +29,8 @@ export class TeachersAndStudentsService {
   SearchTeacherByName(data:any)
     {
       debugger
-      this.http.post('https://localhost:44363/api/account/searchTeacher',data)
-      .subscribe((res)=>{
-        console.log(res);
-        
-        this.data=[res];
-        
-      // },err=>{
-      //   this..error('something error');
-      })
+      return this.http.post('https://localhost:44363/api/account/searchTeacher/',data);
+    
     }
 
   acceptorder(data:any){
@@ -55,5 +49,25 @@ updateAccountStatus(body:any){
   }, err=>{
   });
 }
+
+sendemailcontact(data:any){
+  debugger;
+  this.http.post('https://localhost:44363/api/jwt/SendEmail/',data).subscribe(
+    (res:any)=>{
+      debugger;
+  }, err=>{
+    });
 }
+deleteteacher(acoountid:number){
+  debugger
+  this.http.delete('https://localhost:44363/api/account/DeleteAccount/'+acoountid).subscribe((res)=>{
+    this.toaster.success('deleted  succefully')   
+  },err=>{
+    this.toaster.error('something went wrong with deleteing!!')
+  }  
+  )
+ 
+}
+}
+
 

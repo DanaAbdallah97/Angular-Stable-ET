@@ -11,43 +11,46 @@ export class CategoryService {
 
   message:string='welcome in our training :) ';
   selectedcategory:any={};
-  data:any=[]  
+  data:any=[{}]
   display_image:any;
 
 createcategory(data:any){
-  //this.spinner.show();
   debugger;
-  data.image_path=this.display_image;
-  this.http.post('https://localhost:44363/api/category/createcategory',data).subscribe(
+  data.categoryimage=this.display_image;
+  this.http.post('https://localhost:44363/api/category/createcategory/',data).subscribe(
     (res:any)=>{
-      debugger;
-     // this.spinner.hide();
+      debugger
     this.toaster.success('Saved succefully')
   }, err=>{
-     // this.spinner.hide();
       this.toaster.error(err.message,err.status)
     });
 
 }
+
 uploadAttachment(file:FormData){
-  this.http.post('https://localhost:44343/api/category/UploadImage',file).subscribe(
+  debugger
+  this.http.post('https://localhost:44363/api/category/UploadImage/',file).subscribe(
   (res:any)=>{
-    this.display_image=res.image_path;
+    this.display_image=res.categoryimage;
   },err=>{
     this.toaster.error(err.message,err.status)
   }
   )
 }
-updatecategory(body:any){
-  body.image_path=this.display_image;
-  this.http.put('https://localhost:44363/api/Category/UpdateCategory',body).subscribe((res)=>{
-    this.toaster.success('updated succefully')
-  },err=>{
-    this.toaster.error('something went wrong !!')
-  }
-  )
 
+updatecategory(body:any){
+  debugger
+   body.categoryimage=this.display_image;
+  debugger
+   this.http.put('https://localhost:44363/api/Category/UpdateCategory/',body).subscribe((res)=>{ 
+     window.location.reload();
+     console.log(res);
+    //  window.location.reload();
+})  
 }
+
+
+
 deletecategory(categoryid:number){
   debugger
   this.http.delete('https://localhost:44363/api/Category/DeleteCategory/'+categoryid).subscribe((res)=>{

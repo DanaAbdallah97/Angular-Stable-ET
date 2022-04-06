@@ -8,13 +8,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AboutUsService {
 
-  urlGetAboutus = 'https://localhost:44363/api/managepage/getManagepage';
-  //urlUpdateAboutUs ='https://localhost:44363/api/managepage/UpdateManagepage';
-  // urlDeleteABoutUs='https://localhost:44363/api/managepage/DeleteManagepage/'
-  constructor(private http:HttpClient, private toaster:ToastrService) { 
-    
-  }
-
+  urlGetAboutus = 'https://localhost:44363/api/managepage/getManagepage';  
+  constructor(private http:HttpClient, private toaster:ToastrService) {}
   data:any=[{}]  
   display_Image : any;
   
@@ -71,6 +66,7 @@ updateABoutUs(body:any){
       this.toaster.error(err.status,err.message);
     })
   }
+ 
 }
 
   
