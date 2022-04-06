@@ -1,0 +1,58 @@
+<app-header>
+</app-header>
+<app-footer>
+
+        <h2 _ngcontent-tfu-c81="" style="color:#030431; font-size: 350%; margin-left: 580px; margin-top:50px"></h2>
+        <div class="popular-course section-padding30 " style="margin-top: -100px;">
+          <div class="container">
+            <div class="row">
+              <div *ngFor="let item of Allcourse" class="col-xl-4 col-lg-4 col-md-6">
+                <!-- Single course -->
+                <div class="single-course mb-40">
+                  <div class="course-img">
+
+                  </div>
+
+                  <div  class="course-caption" style="border-style: groove; border-width: thin;">
+                    <div class="course-cap-top">
+                      <h4 style="color: #030431; font-weight:100px ;font-size: 30px;">{{item.coursename}}</h4>
+                      <div class="course-cap-mid d-flex justify-content-between">
+                        <div class="course-ratting">
+                          <i *ngFor="let _ of [].constructor(5)" style="color: #ffd400; margin-left: 3px;"
+                            class="fas fa-star"></i>
+                        </div>
+                      </div>
+                      <table >
+                        <tr>
+                          <td><img 
+                              src="./assets/img/"
+                              style="  vertical-align: middle;width: 40px;height: 40px;border-radius: 50%;"></td>
+                              <td> </td>
+                          <td>
+                            <h4 
+                              style="color: #030431; font-weight:100px ;font-size: 23px; margin-top:20px">
+                            </h4>
+
+                          </td>
+                        </tr>
+                      </table>
+
+                    </div>
+
+                    <div class="course-cap-bottom d-flex justify-content-between">
+                        <h4 ><button class="genric-btn primary small">Make
+                            Appointment</button></h4>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-6">
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+</app-footer>

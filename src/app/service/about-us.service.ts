@@ -25,6 +25,8 @@ createaboutus(body:any){
     });
     window.location.reload();
 
+
+
 }
 
 updateABoutUs(body:any){   
