@@ -73,6 +73,10 @@ export class AuthserviceService {
         } else if (data.role == 'Student') {
           // link sudent with pages
           this.router.navigate(['/home']);
+          localStorage.setItem('UserLoginFlage','true');
+          console.log('Login Studnt');
+          console.log(localStorage.getItem('UserLoginFlage'));
+
         }
       });
     // }),err => {
