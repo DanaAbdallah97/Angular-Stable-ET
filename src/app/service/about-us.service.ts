@@ -19,9 +19,7 @@ export class AboutUsService {
   display_Image : any;
   
 createaboutus(body:any){
-  debugger
   body.background=this.display_Image;
-  debugger
   this.http.post('https://localhost:44363/api/managepage/createManagepage/',body).subscribe(
     (res:any)=>{
     this.toaster.success('Saved succefully')   

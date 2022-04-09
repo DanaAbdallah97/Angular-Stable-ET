@@ -24,6 +24,8 @@ import { AuthModule } from './auth/auth.module';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { SearchTeacherComponent } from './search-teacher/search-teacher.component';
 import { TeacherCourseComponent } from './teacher-course/teacher-course.component';
+import { UpdateProfileStudentComponent } from './update-profile-student/update-profile-student.component';
+import { AppointmentStudentComponent } from './appointment-student/appointment-student.component';
 
 
 
@@ -42,6 +44,8 @@ import { TeacherCourseComponent } from './teacher-course/teacher-course.componen
     AppointmentComponent,
     SearchTeacherComponent,
     TeacherCourseComponent,
+    UpdateProfileStudentComponent,
+    AppointmentStudentComponent,
 
   ],
   imports: [

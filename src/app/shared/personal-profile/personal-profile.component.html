@@ -1,1 +1,30 @@
-<p>personal-profile works!</p>
+<div class="dropdown">
+
+  <table style="margin-left:50px" *ngFor="let item of UserInformation">
+    <tr>
+      <a>
+        <td>
+          <h2 style="color: #030431; margin-top: 15px; ">
+            Welcome {{item.firstname}}
+          </h2>
+          <div class="dropdown-content">
+            <a href="/updateprofilestudent"><b>Update Profile</b></a>
+            <a href="/appointmentStudent"><b> Display Appintment</b></a>
+            <a (click)="logout()" href="/home"> <b>Logout </b></a>
+          </div>
+        </td>
+      </a>
+
+      <td>
+
+      </td>
+      <td></td>
+      <td>
+        <img src="./assets/img/{{item.profilepicture}}"
+          style="  vertical-align: middle;width: 40px;height: 40px;border-radius: 50%;">
+      </td>
+    </tr>
+
+  </table>
+
+</div>

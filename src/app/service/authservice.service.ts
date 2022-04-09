@@ -69,10 +69,12 @@ export class AuthserviceService {
           this.router.navigate(['admin/admindashboard']);
         } else if (data.role == 'Teacher') {
           //link Teacher with page
-          this.router.navigate(['admin/teacherdashboard']);
+          this.router.navigate(['teacher/teacherDashboard']);
         } else if (data.role == 'Student') {
           // link sudent with pages
-          this.router.navigate(['/home']);
+          this.router.navigate(['/home']).then(()=>{
+            window.location.reload();
+          });
           localStorage.setItem('UserLoginFlage','true');
           console.log('Login Studnt');
           console.log(localStorage.getItem('UserLoginFlage'));
@@ -147,6 +149,23 @@ return res ;
         }
       );
   }
+
+
+
+  UpdateProfileStudent(data: any) {
+    this.http
+      .put('https://localhost:44363/api/Account/UpdateAccount', data)
+      .subscribe(
+        (res: any) => {
+          console.warn("result", res);
+        },
+        (err) => {
+          this.toaster.error(err.message, err.status);
+        }
+      );
+  }
+
+
 
 
   updateAccount(body: any) {
