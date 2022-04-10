@@ -14,6 +14,7 @@ import { ManageStudentsComponent } from './manage-students/manage-students.compo
 import { CountComponent } from './count/count.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { SendemailComponent } from './sendemail/sendemail.component';
+import { ChartComponent } from './chart/chart.component';
 
 
 
@@ -32,12 +33,14 @@ import { SendemailComponent } from './sendemail/sendemail.component';
     ManageStudentsComponent,
     CountComponent,
     UpdateProfileComponent,
-    SendemailComponent,      
+    SendemailComponent,
+    ChartComponent,      
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     SharedModule
+    
     
   ]
 })

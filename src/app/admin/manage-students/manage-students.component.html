@@ -1,20 +1,21 @@
 <div class="container-fluid pt-4 px-4">
     <div class="bg-light text-center rounded p-4" style="margin-left:20%;">
+        <h1 style="color: #1f2b7b;margin-left: -85%; font-weight: bold;">Students</h1>
         <div class="d-flex align-items-center justify-content-between mb-4">
             <!-- <button class="bt btn-success" (click)="createcategory()">Create Category</button> -->
         </div>
         <div class="table-responsive">
             <table class="table text-start align-middle table-bordered table-hover mb-0">
                 <thead>
-                    <tr class="text-dark">
-                        <th scope="col">Student First Name</th>
-                        <th scope="col">Student Last Name</th>
-                        <th scope="col">Student Email</th>
-                        <th scope="col">Student Account Password</th>
-                        <th scope="col">Student Phone Number</th>
-                        <th scope="col">Student Gender </th>
-                        <th scope="col">Student Birth Of Date</th>
-                        <th scope="col">Student Rpfile Picture</th>                      
+                    <tr class="text-dark"  style="color:#1f2b7b!important">
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Account Password</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">Gender </th>
+                        <th scope="col">Birth Of Date</th>
+                        <th scope="col">Profile Picture</th>                      
                     </tr>
                 </thead>
                 <tbody>
@@ -26,7 +27,7 @@
                         <td>{{obj.phonenumber}}</td>
                         <td>{{obj.gender}}</td>
                         <td>{{obj.birthofdate}}</td>
-                        <td>{{obj.profilepicture}}</td>
+                        <td><img src="../../../assets/img/{{obj.profilepicture}}" style="width:50%;height: 50%;"></td>
                                            
                         <!-- <td><button class="btn btn-sm btn-info"
                             (click)="openUpdateDialog(obj.testmonialid ,obj.testmonialcomment , obj.rate, obj.testmonialstatus, obj.acoount)">"

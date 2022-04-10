@@ -13,7 +13,7 @@ export class HomeService {
   categoryid:number=parseInt(this.str)
   categoryName:string | undefined;
 
-  urlGetCategories = 'https://localhost:44363/api/category/getCategory';
+  urlGetCategories = 'https://localhost:44363/api/Category/getCategory';
 
   constructor(private http: HttpClient, private toaster: ToastrService) { }
 
