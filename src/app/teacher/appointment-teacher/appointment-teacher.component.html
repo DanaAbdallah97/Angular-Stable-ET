@@ -1,0 +1,33 @@
+
+<app-teacher-header></app-teacher-header>
+<!-- Recent Sales Start -->
+<h1  style="position: absolute;  color: #009CFF; margin-top: -470px; margin-left: 570px; font-size: 60px;">Your Appointment</h1>
+
+<div class="container-fluid pt-4 px-4" style="margin-top: -430px; margin-left: 240px;">
+  <div class="bg-light text-center rounded p-4">
+    <div class="table-responsive">
+      <table class="table text-start align-middle table-bordered table-hover mb-0">
+        <thead>
+          <tr class="text-dark">
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+            <th scope="col">Student Name</th>
+            <th scope="col">Course</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of TeacherAppointment">
+          <tr>
+            <td>{{item.startdate}}</td>
+            <td>{{item.houre}}</td>
+            <td>{{item.firstnameStudent}} {{item.lastnameStudent}}</td>
+            <td>{{item.coursename}}</td>
+            <td>{{item.appointmentstatus}}</td>
+            <!-- <td><a class="btn btn-sm btn-primary" href="">Detail</a></td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- Recent Sales End -->
