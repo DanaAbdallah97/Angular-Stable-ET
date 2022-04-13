@@ -11,7 +11,7 @@ import { AuthserviceService } from 'src/app/service/authservice.service';
 export class TeacherRegisterComponent implements OnInit {
 
   roldeidTeacher = 3
-  teacherid = 9999
+  teacherid = 99996
   teacherstatus="waiting"
   selectedFile: any;
   P_picture: any;

@@ -15,11 +15,6 @@ import { CountComponent } from './count/count.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { SendemailComponent } from './sendemail/sendemail.component';
 import { ChartComponent } from './chart/chart.component';
-
-
-
-
-
 @NgModule({
   declarations: [
     AdmindashboardComponent,
@@ -34,7 +29,8 @@ import { ChartComponent } from './chart/chart.component';
     CountComponent,
     UpdateProfileComponent,
     SendemailComponent,
-    ChartComponent,      
+    ChartComponent,
+         
   ],
   imports: [
     CommonModule,
