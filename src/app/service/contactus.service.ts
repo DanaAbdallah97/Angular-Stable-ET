@@ -34,7 +34,7 @@ export class ContactusService {
   
   sendemailcontact(data:any){
     debugger;
-    this.http.post('https://localhost:44363/api/jwt/SendEmail/',data).subscribe(
+    this.http.post('https://localhost:44363/api/jwt/SendEmailContact/',data).subscribe(
       (res:any)=>{
         debugger;
     }, err=>{

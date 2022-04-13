@@ -5,7 +5,6 @@ import { AdminModule } from './admin/admin.module';
 import { AppointmentStudentComponent } from './appointment-student/appointment-student.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { AuthModule } from './auth/auth.module';
-import { AuthguardGuard } from './authguard.guard';
 import { ConcatusComponent } from './concatus/concatus.component';
 import { CourseComponent } from './course/course.component';
 import { HomeComponent } from './home/home.component';
@@ -46,6 +45,22 @@ const routes: Routes = [
     component: AppointmentStudentComponent
   },
 
+{path:'search',
+component:SearchTeacherComponent},
+{
+  path:'auth',
+  loadChildren:()=>AuthModule
+},
+{
+  path:'admin',
+  loadChildren:()=>AdminModule,
+},
+
+
+{
+  path: 'course',
+  component: CourseComponent
+},
   {
     path: 'search',
     component: SearchTeacherComponent

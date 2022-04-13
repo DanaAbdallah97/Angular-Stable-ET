@@ -36,7 +36,7 @@
                         <td>{{obj.accountpassword}}</td>
                         <td>{{obj.phonenumber}}</td>
                         <td>{{obj.gender}}</td>
-                        <td>{{obj.birthofdate}}</td>
+                        <td>{{obj.birthofdate|date}}</td>
                         <td><img src="../../../assets/img/{{obj.profilepicture}}" style="width:70%;height: 70%;"></td>
                         <td>{{obj.accountstatus}}</td>
                         <td>{{obj.certificate}}</td>
@@ -115,14 +115,14 @@
             <li>
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>enter the Password </mat-label>
-                    <input type="text" matInput formControlName="Password"
+                    <input type="password" matInput formControlName="Password"
                         [(ngModel)]="previousMsgs.Password" placeholder="enter the Password ">
                 </mat-form-field>
             </li>   
 
             <li>
                 <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>enter the teacher status</mat-label>
+                    <mat-label>enter the email text</mat-label>
                     <input type="text" matInput formControlName="textMsg"
                         [(ngModel)]="previousMsgs.textMsg" placeholder="enter the text msg ">
                 </mat-form-field>

@@ -35,6 +35,7 @@ createcategory(data:any){
     });
   });
 
+  })
 }
 
 uploadAttachment(file:FormData){

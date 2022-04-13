@@ -14,6 +14,7 @@ import { SearchButtonComponent } from './search-button/search-button.component';
 import { LoginRegisterComponent } from './login-register/login-register.component';
 import { PersonalProfileComponent } from './personal-profile/personal-profile.component';
 
+
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -32,7 +33,7 @@ import { PersonalProfileComponent } from './personal-profile/personal-profile.co
     MatInputModule,
     MatButtonModule,
     MatRadioModule,
-    MatDialogModule,
+    MatDialogModule,  
   
   ],
   exports:[
@@ -46,7 +47,7 @@ import { PersonalProfileComponent } from './personal-profile/personal-profile.co
     FooterComponent,
     MatRadioModule,
     MatDialogModule,
-    SearchButtonComponent
+    SearchButtonComponent,   
 
   ]
 })
