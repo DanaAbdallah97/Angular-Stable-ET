@@ -12,6 +12,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatDialogModule} from '@angular/material/dialog';
 import { SearchButtonComponent } from './search-button/search-button.component';
 
+
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -28,7 +29,7 @@ import { SearchButtonComponent } from './search-button/search-button.component';
     MatInputModule,
     MatButtonModule,
     MatRadioModule,
-    MatDialogModule,
+    MatDialogModule,  
   
   ],
   exports:[
@@ -42,7 +43,7 @@ import { SearchButtonComponent } from './search-button/search-button.component';
     FooterComponent,
     MatRadioModule,
     MatDialogModule,
-    SearchButtonComponent
+    SearchButtonComponent,   
 
   ]
 })

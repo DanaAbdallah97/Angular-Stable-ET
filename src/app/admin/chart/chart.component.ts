@@ -10,17 +10,28 @@ import { TeachersAndStudentsService } from 'src/app/service/teachers-and-student
 export class ChartComponent implements OnInit {
 
   constructor(private teachersAndStudents:TeachersAndStudentsService) { }
-  numberOfStudents:any={}
-  numberOfTeachers:any={}
+  numberOfStudents:number=0;
+  numberOfTeachers:number=0;
+  numberOfCourses:number=0;
+  numberOfCategory:number=0;
   BarChart :any= [];
   ngOnInit(): void {
-    console.log('numberOfStudents',this.numberOfStudents)
-    this.teachersAndStudents.getCountOfStudents().subscribe((res)=>{
-        this.numberOfStudents=res;
-        
+    console.log('numberOfTeachers',this.numberOfTeachers)
+
+      this.teachersAndStudents.getCountOfTeachers().subscribe((res)=>{  
+        debugger 
+        this.numberOfTeachers=<number>res;
+        console.log('res',res);
+        console.log('numberOfTeachers',this.numberOfTeachers);
       })
-      this.teachersAndStudents.getCountOfTeachers().subscribe((res)=>{
-        this.numberOfTeachers=res;
+       this.teachersAndStudents.getCountOfStudents().subscribe((res)=>{       
+         this.numberOfStudents=<number>res;   
+      })
+      this.teachersAndStudents.getCountOfCourses().subscribe((res)=>{
+        this.numberOfCourses=<number>res;
+      })
+      this.teachersAndStudents.getCountOfCategory().subscribe((res)=>{
+        this.numberOfCategory=<number>res;
       })
 }
 
@@ -29,16 +40,17 @@ ctx: any;
 @ViewChild('mychart') mychart:any;
 
 ngAfterViewInit() {
+  
+  console.log(this.numberOfTeachers)
   this.canvas = this.mychart.nativeElement; 
   this.ctx = this.canvas.getContext('2d');
 
-  new Chart(this.ctx, {
+  new Chart(this.ctx, { 
     type: 'bar',
     data: {
       labels: ['Teachers', 'Students', 'Courses', 'Category'],
-      datasets: [{
-        
-        data: [2, 50, 80, 81],
+      datasets: [{        
+        data: [this.numberOfCategory],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(255, 159, 64, 0.2)',

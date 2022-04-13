@@ -4,7 +4,6 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { AdminModule } from './admin/admin.module';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { AuthModule } from './auth/auth.module';
-import { AuthguardGuard } from './authguard.guard';
 import { ConcatusComponent } from './concatus/concatus.component';
 import { CourseComponent } from './course/course.component';
 import { HomeComponent } from './home/home.component';
@@ -45,14 +44,12 @@ component:SearchTeacherComponent},
 {
   path:'admin',
   loadChildren:()=>AdminModule,
-  //canActivate:[AuthguardGuard]
 },
 
 
 // {
 //   path:'teacher',
 //   loadChildren:()=>,
-//   canActivate:[AuthguardGuard]
 // },
 {
   path: 'course',

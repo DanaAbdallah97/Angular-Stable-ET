@@ -6,7 +6,9 @@ import { ToastrService } from 'ngx-toastr';
   providedIn: 'root'
 })
 export class TeachersAndStudentsService {
-  data:any=[{}];
+  data:any=[{
+    birthofdate: new Date()
+  }];
   constructor(private http:HttpClient, private toaster:ToastrService) { }
   getAllTeachers(){
     debugger
@@ -21,6 +23,12 @@ export class TeachersAndStudentsService {
   }
   getCountOfStudents(){
     return this.http.get('https://localhost:44363/api/account/getNumberStudent');
+  }
+  getCountOfCategory(){
+    return this.http.get('https://localhost:44363/api/category/getNumberCategory');
+  }
+  getCountOfCourses(){
+    return this.http.get('https://localhost:44363/api/course/getNumbercourse');
   }
   // SearchTeacherByName(obj:any){
   //    return this.http.post('https://localhost:44363/api/account/searchTeacher',obj);

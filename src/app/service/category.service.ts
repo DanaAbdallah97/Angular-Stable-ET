@@ -34,6 +34,7 @@ createcategory(data:any){
       this.toaster.error(err.message,err.status)
     });
 
+  })
 }
 
 uploadAttachment(file:FormData){

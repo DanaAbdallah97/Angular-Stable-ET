@@ -16,18 +16,10 @@ import { tokeninterceptor } from './interceptor/token.interceptor';
 import { CourseComponent } from './course/course.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { SpinnerComponent } from './spinner/spinner.component';
-
 import { AuthModule } from './auth/auth.module';
-
-
-
 import { AppointmentComponent } from './appointment/appointment.component';
 import { SearchTeacherComponent } from './search-teacher/search-teacher.component';
 import { TeacherCourseComponent } from './teacher-course/teacher-course.component';
-
-
-
-
 
 @NgModule({
   declarations: [
@@ -42,6 +34,7 @@ import { TeacherCourseComponent } from './teacher-course/teacher-course.componen
     AppointmentComponent,
     SearchTeacherComponent,
     TeacherCourseComponent,
+
 
   ],
   imports: [
