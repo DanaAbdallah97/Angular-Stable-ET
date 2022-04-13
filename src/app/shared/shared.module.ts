@@ -11,12 +11,16 @@ import { AppModule } from '../app.module';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatDialogModule} from '@angular/material/dialog';
 import { SearchButtonComponent } from './search-button/search-button.component';
+import { LoginRegisterComponent } from './login-register/login-register.component';
+import { PersonalProfileComponent } from './personal-profile/personal-profile.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    SearchButtonComponent
+    SearchButtonComponent,
+    LoginRegisterComponent,
+    PersonalProfileComponent
 
   ],
   imports: [
@@ -46,4 +50,6 @@ import { SearchButtonComponent } from './search-button/search-button.component';
 
   ]
 })
-export class SharedModule { }
+export class SharedModule {
+
+ }
