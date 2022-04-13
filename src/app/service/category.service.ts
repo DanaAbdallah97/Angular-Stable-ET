@@ -33,6 +33,7 @@ createcategory(data:any){
   }, err=>{
       this.toaster.error(err.message,err.status)
     });
+  });
 
   })
 }

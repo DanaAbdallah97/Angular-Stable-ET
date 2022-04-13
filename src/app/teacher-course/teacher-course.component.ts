@@ -16,8 +16,11 @@ export class TeacherCourseComponent implements OnInit {
 
   Allcourse: any = {}
   Teacherid: any;
+  TeacherName:any=[];
+  TeacherById:any =[];
+  
   constructor(private courseAPI: HomeService, private http: HttpClient, private courseSerice: CourseService, private search: SearchTeacherService, private router: Router) {
-    this.Teacherid = this.search.IdTeacherSearch;
+    this.Teacherid =localStorage.getItem('IdTeacherSearch');
 
     this.http.get('https://localhost:44363/api/course/GetCourseByTeacherId/'+this.Teacherid).subscribe((result) => {
 
@@ -26,17 +29,24 @@ export class TeacherCourseComponent implements OnInit {
 
       console.log(this.Allcourse);
     })
+    this.courseSerice.getTeacherName().subscribe((resultTeacher) => {
+      this.TeacherName = resultTeacher;
+  })
 
+  this.http.get('https://localhost:44363/api/Account/GetTeacherById/'+this.Teacherid).subscribe((result) => {
 
-    this.http.get('https://localhost:44363/api/course/GetCourseByTeacherId/'+this.search.IdTeacherSearch).subscribe((result) => {
+    this.TeacherById = result;
 
-      this.Allcourse = result;
-      console.log('Allllllllll Course 22222')
+console.log('Teacherrrrrrrrrrrrrrrrrrrrr')
+    console.log(this.TeacherById);
+  })
+}
 
-      console.log(this.Allcourse);
-    })
+getCourseId(id: any) {
+  this.courseSerice.getCourseId(id);
+  this.router.navigate(['appointment']);
+}
 
-  }
 
 
   ngOnInit(): void {

@@ -8,6 +8,8 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { SharedRoutingModule } from './shared/shared-routing.module';
+import { TeacherRoutingModule} from './teacher/teacher-routing.module';
+
 import { FormsModule } from '@angular/forms';
 import { CategoriesComponent } from './categories/categories.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -20,6 +22,8 @@ import { AuthModule } from './auth/auth.module';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { SearchTeacherComponent } from './search-teacher/search-teacher.component';
 import { TeacherCourseComponent } from './teacher-course/teacher-course.component';
+import { UpdateProfileStudentComponent } from './update-profile-student/update-profile-student.component';
+import { AppointmentStudentComponent } from './appointment-student/appointment-student.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +38,9 @@ import { TeacherCourseComponent } from './teacher-course/teacher-course.componen
     AppointmentComponent,
     SearchTeacherComponent,
     TeacherCourseComponent,
+    UpdateProfileStudentComponent,
+    AppointmentStudentComponent,
+
 
 
   ],
@@ -51,11 +58,12 @@ import { TeacherCourseComponent } from './teacher-course/teacher-course.componen
       preventDuplicates:true,
     }),
     FormsModule,
+    TeacherRoutingModule
   ],
   exports:[
     SharedModule,
-    AuthModule
-    
+    AuthModule,
+    TeacherRoutingModule
   ],
   providers: [
     {
