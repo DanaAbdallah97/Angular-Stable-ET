@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
     console.log('headerr state ')
     console.log(this.loginState);
 
+
   }
 
   ngOnInit(): void {

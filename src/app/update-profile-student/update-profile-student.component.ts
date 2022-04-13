@@ -30,7 +30,7 @@ export class UpdateProfileStudentComponent implements OnInit {
   constructor(private router: Router, private http: HttpClient, public auth: AuthserviceService) {
 
     console.log('Inforrrrrrrrrrrrrrrrrrrrrmaion')
-    this.http.get('https://localhost:44363/api/Account/GetTeacherById/'+ this.studentid).subscribe(
+    this.http.get('https://localhost:44363/api/Account/GetTeacherById/'+this.studentid).subscribe(
         (res) => {
           this.accountInformationStudent = res;
           console.log('Account Information ')
@@ -78,7 +78,7 @@ export class UpdateProfileStudentComponent implements OnInit {
 
     this.P_picture = this.selectedFile.name;
 
-    this.http.post('https://localhost:44363/api/Account/UploadImage', fd).subscribe(res => {  
+    this.http.post('https://localhost:44363/api/Account/UploadImage',fd).subscribe(res => {  
 
       // console.log(res);
     });
