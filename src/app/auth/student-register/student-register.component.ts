@@ -34,14 +34,17 @@ export class StudentRegisterComponent implements OnInit {
 // Uplaod profilepicture
   onFileSelected(event: any) {
     this.selectedFile = <File>event.target.files[0];
-    const fd = new FormData();
+    var fd = new FormData();
     fd.append('image', this.selectedFile, this.selectedFile.name);
 
     this.P_picture = this.selectedFile.name;
 
-    this.http.post('https://localhost:44363/api/Account/UploadImage', fd).subscribe(res => {
-      // console.log(res);
-    });
+    this.auth.uploadImage(fd).subscribe(
+      (res) => {
+        console.log('asdasdasdasdasdasd')
+        console.log(res)
+        return res;
+      });
   }
 
 

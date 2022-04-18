@@ -27,4 +27,9 @@ getTeacherAppointment(Teacherid :any){
 return this.http.get('https://localhost:44363/api/Appointment/TeacherDashboardAppintment/'+Teacherid);
 }
 
+getCouseByTeacherId(TeacherId:any){
+return this.http.get('https://localhost:44363/api/course/GetCourseByTeacherId/'+TeacherId);
+
+}
+
 }

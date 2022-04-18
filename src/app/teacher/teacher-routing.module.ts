@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AppointmentComponent } from '../appointment/appointment.component';
 import { AppointmentTeacherComponent } from './appointment-teacher/appointment-teacher.component';
+import { ManageCoursesComponent } from './manage-courses/manage-courses.component';
 import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.component';
 
 const routes: Routes = [
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path: 'appointment',
     component: AppointmentTeacherComponent
+  },
+  {
+    path: 'manageCourse',
+    component: ManageCoursesComponent
   },
 ];
 
