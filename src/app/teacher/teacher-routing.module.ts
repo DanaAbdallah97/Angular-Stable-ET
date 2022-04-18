@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppointmentComponent } from '../appointment/appointment.component';
 import { AppointmentTeacherComponent } from './appointment-teacher/appointment-teacher.component';
 import { ManageCoursesComponent } from './manage-courses/manage-courses.component';
+import { TeacherProfileComponent } from './teacher-profile/teacher-profile.component';
 import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.component';
 
 const routes: Routes = [
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'manageCourse',
     component: ManageCoursesComponent
+  },
+  {
+    path: 'teacherUpdateProfile',
+    component: TeacherProfileComponent
   },
 ];
 
