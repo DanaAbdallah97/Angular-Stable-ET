@@ -1,0 +1,56 @@
+<h1 style="margin-left:40px; margin-top: 20px; font-size: 50px;" mat-dialog-title> {{data?.title}}</h1>
+
+<div class="col-lg-8">
+  <form style="margin-left: 25px; width: 400px" class="form-contact contact_form" #studentPost="ngForm"
+    (ngSubmit)="onSubmit(studentPost.value)">
+
+    <!-- student id -->
+    <input class="form-control"  type="number" name="courseid" ngModel placeholder="courseid" [value]="courseid"
+      [(ngModel)]="courseid" hidden />
+    <br />
+
+    <!-- Teacher id -->
+    <input class="form-control" type="number" name="acoountid" ngModel placeholder="acoountid"
+      [value]="acoountTeacherId" [(ngModel)]="acoountTeacherId" hidden />
+    <br />
+
+    <!-- Category id -->
+    <input class="form-control" type="number" name="categoryid" ngModel placeholder="categoryid" [value]="categoryid"
+      [(ngModel)]="categoryid" hidden />
+    <br />
+
+
+    <!-- course name -->
+    <label class="label" for="CN">Course Name</label>
+    <input class="form-control" id="CN" type="text" name="coursename" ngModel placeholder="Course Name" required minlength="4"
+      [value]="coursename" [(ngModel)]="coursename" />
+    <br />
+
+    <!-- course description  -->
+    <label class="label" for="CD">Course Description</label>
+    <input class="form-control" type="text" id="CD" name="coursedescription" ngModel placeholder="Course Description"
+      [value]="coursedescription" [(ngModel)]="coursedescription" />
+    <br />
+
+    <!-- course description  -->
+    <label class="label" for="CV">Course Video</label>
+    <input class="form-control" id="CV" type="text" name="coursevideo" ngModel placeholder="Course Video" [value]="coursevideo"
+      [(ngModel)]="coursevideo" />
+    <br />
+
+
+    <!-- Course picture -->
+    <label class="label">Change Picture</label>
+    <input style="opacity: 0;" id="file" type="file" (change)="onFileSelected($event)" #fileInput name="Course Image"
+      [value]="P_picture" [(ngModel)]="P_picture">
+    <label class="genric-btn primary" for="file">Course picture</label>
+    <!-- <button  (click)="fileInput.click()" class="genric-btn primary">Profile Picture</button> -->
+    <!-- <input class="form-control" type="text" name="profilepicture" ngModel placeholder="profilepicture" /> -->
+    <br /> <br />
+    <br><br>
+    <button class="button button-contactForm boxed-btn" type="submit">
+      Update Course
+    </button>
+    <br /><br /><br /><br /><br />
+  </form>
+</div>

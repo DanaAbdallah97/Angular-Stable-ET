@@ -123,6 +123,10 @@ export class AuthserviceService {
   }
 
 
+uploadImage(data :any){
+return this.http.post('https://localhost:44363/api/Account/UploadImage',data);
+}
+
   getAllAccounts() {
 
     this.http.get('https://localhost:44363/api/Account/GetAccount').subscribe(

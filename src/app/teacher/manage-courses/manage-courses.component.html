@@ -1,0 +1,37 @@
+
+<app-teacher-header></app-teacher-header>
+<!-- Recent Sales Start -->
+<h1  style="position: absolute;  color: #009CFF; margin-top: -470px; margin-left: 570px; font-size: 60px;">Your Courses</h1>
+
+
+
+<div class="container-fluid pt-4 px-4" style="margin-top: -430px; margin-left: 240px;"  >
+  <button (click)="CreatCourse()"  class="btn btn-sm btn-primary m-2">Create Course</button>
+  <div class="bg-light text-center rounded p-4">
+    <div class="table-responsive">
+      <table class="table  align-middle table-bordered table-hover mb-0">
+        <thead>
+          <tr class="text-dark">
+            <th scope="col">Course Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Image</th>
+            <th scope="col">Manage Course</th>
+          </tr>
+        </thead>
+        <tbody> 
+          <tr *ngFor="let item of TeacherCourse">
+            <td>{{item.coursename}}</td>
+            <td>{{item.coursedescription}}</td>
+            <td>  <img style="width:50%;
+                height:50%;" src="./assets/img/{{item.courseimage}}" alt=""></td>
+            <td><div class="btn-group" role="group">
+                <button (click)="DeleteCourse(item.courseid)" class="btn btn-danger">Delete</button>
+                <button type="button" (click)="EditCoure(item.courseid,item.acoountid,item.categoryid,item.coursename,item.coursedescription,item.courseimage,item.courserate,item.coursevideo)"  class="btn btn-warning">Edit</button>
+            </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- Recent Sales End -->

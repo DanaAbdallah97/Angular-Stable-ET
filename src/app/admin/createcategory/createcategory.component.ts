@@ -26,7 +26,6 @@ export class CreatecategoryComponent implements OnInit {
        this.cats.createcategory(this.createForm.value);
    }
    uploadimg(file:any){
-    debugger
      if(file.length === 0)
      return ;
      const uploadfile = <File>file[0];

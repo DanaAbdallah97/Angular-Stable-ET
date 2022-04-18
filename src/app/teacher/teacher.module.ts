@@ -6,6 +6,11 @@ import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.c
 import { TeacherHeaderComponent } from './teacher-header/teacher-header.component';
 import { TeacherProfileComponent } from './teacher-profile/teacher-profile.component';
 import { AppointmentTeacherComponent } from './appointment-teacher/appointment-teacher.component';
+import { ManageCoursesComponent } from './manage-courses/manage-courses.component';
+import { DialogCoureComponent } from './dialog-coure/dialog-coure.component';
+
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogCreateCoursComponent } from './dialog-create-cours/dialog-create-cours.component';
 
 
 @NgModule({
@@ -13,11 +18,15 @@ import { AppointmentTeacherComponent } from './appointment-teacher/appointment-t
     TeacherdashboardComponent,
     TeacherHeaderComponent,
     TeacherProfileComponent,
-    AppointmentTeacherComponent
+    AppointmentTeacherComponent,
+    ManageCoursesComponent,
+    DialogCoureComponent,
+    DialogCreateCoursComponent
   ],
   imports: [
     CommonModule,
-    TeacherRoutingModule
+    TeacherRoutingModule,
+    MatDialogModule
   ]
 })
 export class TeacherModule { }
