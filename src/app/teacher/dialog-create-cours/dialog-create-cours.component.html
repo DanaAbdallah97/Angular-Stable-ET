@@ -1,0 +1,40 @@
+<h1 style="margin-left:40px; margin-top: 20px; font-size: 50px;" mat-dialog-title> {{data?.title}}</h1>
+
+<div class="col-lg-8">
+  <form style="margin-left: 25px; width: 400px" class="form-contact contact_form" #studentPost="ngForm"
+    (ngSubmit)="onSubmit(studentPost.value)">
+
+    <!-- Course id -->
+    <input class="form-control" type="number" name="courseid" ngModel placeholder="id" [value]="courseid"
+      [(ngModel)]="courseid" hidden />
+    <br />
+    <!-- acoount Teacher id -->
+    <input class="form-control" type="number" name="acoountid" ngModel placeholder="role" [value]="acoountTeacherId"
+      [(ngModel)]="acoountTeacherId" hidden />
+    <br />
+    <!-- Course name -->
+    <input class="form-control" type="text" name="coursename" ngModel placeholder="Course Name" required minlength="4" />
+    <br />
+    <!-- Category -->
+    <select  style="background-color: white;" class="form-control" name="categoryid" ngModel>
+      <option value="" disabled selected hidden>Choose Category...</option>
+      <option *ngFor="let itemCatergory of AllCategory" class="form-control" value="{{itemCatergory.categoryid}}">{{itemCatergory.categoryname}}</option>
+    </select>
+    <br />
+    <!-- course description -->
+    <input class="form-control" type="text" name="coursedescription" ngModel placeholder="Course Description" />
+    <br />
+    <!-- course video -->
+    <input class="form-control" type="text" name="coursevideo" ngModel placeholder="Course video link" />
+    <br />
+    <!-- profile picture -->
+    <input style="opacity: 0;" id="file" type="file" (change)="onFileSelected($event)" #fileInput>
+    <label class="genric-btn primary" for="file">Course Picture</label>
+    <br /> <br />
+    <br><br>
+    <button class="button button-contactForm boxed-btn" type="submit">
+      Create Course
+    </button>
+    <br /><br /><br /><br /><br />
+  </form>
+</div>
