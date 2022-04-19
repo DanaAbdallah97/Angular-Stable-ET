@@ -25,9 +25,9 @@
             <td>{{item.coursename}}</td>
             <td>{{item.appointmentstatus}}</td>
             <td><div class="btn-group" role="group">
-              <button type="button" class="btn btn-danger">Reject</button>
-              <button type="button" class="btn btn-warning">Waiting</button>
-              <button type="button" class="btn btn-success">Accept</button>
+              <button    (click)="Reject(item.appointmentid)"  class="btn btn-danger">Reject</button>
+              <button (click)="Waiting(item.appointmentid)" class="btn btn-warning">Waiting</button>
+              <button  (click)="Accept(item.appointmentid)" type="button" class="btn btn-success">Accept</button>
           </div></td>
             <!-- <td><a class="btn btn-sm btn-primary" href="">Detail</a></td> -->
           </tr>
