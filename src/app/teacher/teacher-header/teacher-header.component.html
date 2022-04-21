@@ -2,9 +2,7 @@
 <div class="content">
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
-        <form class="d-none d-md-flex ms-4">
-            <input class="form-control border-0" type="search" placeholder="Search">
-        </form>
+
         <div style="margin-right: 20px;" class="navbar-nav align-items-center ms-auto">
             <div *ngFor="let item of UserInformation" class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
@@ -13,7 +11,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                     <!-- create an update profile here for teacher because have other information about student-->
-                    <a href="" class="dropdown-item">Update Profile</a>
+                    <a href="/teacher/teacherUpdateProfile" class="dropdown-item">Update Profile</a>
                     <a href="/home" (click)="logout()" class="dropdown-item">Log Out</a>
                 </div>
             </div>

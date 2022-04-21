@@ -1,12 +1,78 @@
-
 <app-teacher-header></app-teacher-header>
 <!-- Recent Sales Start -->
-<h1  style="position: absolute;  color: #009CFF; margin-top: -470px; margin-left: 570px; font-size: 60px;">Your Appointment</h1>
+<h1 style="
+    position: absolute;
+    color: #009cff;
+    margin-top: -470px;
+    margin-left: 570px;
+    font-size: 60px;
+  ">
+  Your Appointment
+</h1>
+<!--Seach Between Two Date-->
+<div class="container-fluid pt-4 px-4" style="margin-top: -430px; margin-left: 240px">
+  <!-- Search Between Two Date-->
+  <table>
+    <tr>
+      <!-- Start Date-->
+      <td>
+    <tr>
+      <label for="">Start Date</label>
+    </tr>
+    <tr>
+      <td>
+        <input [value]="StartDate" [(ngModel)]="StartDate" type="date" id="" name="fname" placeholder="Start Date" />
+      </td>
+    </tr>
+    </td>
+    <!-- End Start Date-->
+    <!-- End Date-->
+    <td>
+      <tr>
+        <label for="">End Date</label>
+      </tr>
+      <tr>
+        <td>
+          <input type="date" ngModel [value]="EndDate" [(ngModel)]="EndDate" name="fname" placeholder="End Date" />
+        </td>
+      </tr>
+    </td>
+    <!-- End End Date-->
 
-<div class="container-fluid pt-4 px-4" style="margin-top: -430px; margin-left: 240px;">
-  <div class="bg-light text-center rounded p-4">
+    <td>
+      <tr>
+        <br />
+      </tr>
+      <tr>
+        <td>
+          <button (click)="SearchDate()" class="btn btn-square btn-outline-success m-2">
+            <i class="fa fa-search"></i>
+          </button>
+        </td>
+      </tr>
+    </td>
+
+    <td>
+      <tr>
+        <br />
+      </tr>
+      <tr>
+        <td>
+          <button (click)="CleatDate()" class="btn btn-square btn-outline-success m-2">
+            <i class="fa fa-minus"></i>
+          </button>
+        </td>
+      </tr>
+    </td>
+    </tr>
+  </table>
+  <!-- End Search Between Two Date-->
+  <br />
+
+    <!-- Teacher Appointment-->
+  <div *ngIf="!flagSearch" class="bg-light text-center rounded p-4">
     <div class="table-responsive">
-      <table class="table  align-middle table-bordered table-hover mb-0">
+      <table class="table align-middle table-bordered table-hover mb-0">
         <thead>
           <tr class="text-dark">
             <th scope="col">Date</th>
@@ -19,16 +85,65 @@
         </thead>
         <tbody *ngFor="let item of TeacherAppointment">
           <tr>
-            <td>{{item.startdate}}</td>
-            <td>{{item.houre}}</td>
-            <td>{{item.firstnameStudent}} {{item.lastnameStudent}}</td>
-            <td>{{item.coursename}}</td>
-            <td>{{item.appointmentstatus}}</td>
-            <td><div class="btn-group" role="group">
-              <button    (click)="Reject(item.appointmentid)"  class="btn btn-danger">Reject</button>
-              <button (click)="Waiting(item.appointmentid)" class="btn btn-warning">Waiting</button>
-              <button  (click)="Accept(item.appointmentid)" type="button" class="btn btn-success">Accept</button>
-          </div></td>
+            <td>{{ item.startdate }}</td>
+            <td>{{ item.houre }}</td>
+            <td>{{ item.firstnameStudent }} {{ item.lastnameStudent }}</td>
+            <td>{{ item.coursename }}</td>
+            <td>{{ item.appointmentstatus }}</td>
+            <td>
+              <div class="btn-group" role="group">
+                <button (click)="Reject(item.appointmentid)" class="btn btn-danger">
+                  Reject
+                </button>
+                <button (click)="Waiting(item.appointmentid)" class="btn btn-warning">
+                  Waiting
+                </button>
+                <button (click)="Accept(item.appointmentid)" type="button" class="btn btn-success">
+                  Accept
+                </button>
+              </div>
+            </td>
+            <!-- <td><a class="btn btn-sm btn-primary" href="">Detail</a></td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Search Appointment-->
+  <div *ngIf="flagSearch" class="bg-light text-center rounded p-4">
+    <div class="table-responsive">
+      <table class="table align-middle table-bordered table-hover mb-0">
+        <thead>
+          <tr class="text-dark">
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+            <th scope="col">Student Name</th>
+            <th scope="col">Course</th>
+            <th scope="col">Status</th>
+            <th scope="col">Manage Status</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of SearchBetweenTwoDate">
+          <tr>
+            <td>{{ item.startdate }}</td>
+            <td>{{ item.houre }}</td>
+            <td>{{ item.firstnameStudent }} {{ item.lastnameStudent }}</td>
+            <td>{{ item.coursename }}</td>
+            <td>{{ item.appointmentstatus }}</td>
+            <td>
+              <div class="btn-group" role="group">
+                <button (click)="Reject(item.appointmentid)" class="btn btn-danger">
+                  Reject
+                </button>
+                <button (click)="Waiting(item.appointmentid)" class="btn btn-warning">
+                  Waiting
+                </button>
+                <button (click)="Accept(item.appointmentid)" type="button" class="btn btn-success">
+                  Accept
+                </button>
+              </div>
+            </td>
             <!-- <td><a class="btn btn-sm btn-primary" href="">Detail</a></td> -->
           </tr>
         </tbody>
@@ -36,4 +151,7 @@
     </div>
   </div>
 </div>
+
+
+
 <!-- Recent Sales End -->
