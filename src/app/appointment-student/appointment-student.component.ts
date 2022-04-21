@@ -17,7 +17,7 @@ export class AppointmentStudentComponent implements OnInit {
 
   constructor(private router: Router, private http: HttpClient, public auth: AuthserviceService) {
 
-    this.http.get('https://localhost:44363/api/Appointment/GetAppointmentByAccountId/' + localStorage.getItem('IdAccount')).subscribe((result) => {
+    this.http.get('https://localhost:44363/api/Appointment/StudentAppointment/' + localStorage.getItem('IdAccount')).subscribe((result) => {
       this.AppointmentStudent = result;
       console.log('AppointmentStudent')
       console.log(this.AppointmentStudent);
