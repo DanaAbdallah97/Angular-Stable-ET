@@ -15,6 +15,12 @@ export class AppointmentTeacherComponent implements OnInit {
   AcceptStat: any = '/accept';
   WaitingtStat: any = '/waiting';
 
+  flagSearch? :boolean=false;
+  StartDate: any;
+  EndDate: any;
+
+  SearchBetweenTwoDate: any = {}
+
 
   constructor(private httpTeacher: TeacherDashboardService, private http: HttpClient) {
     this.TeacherId = localStorage.getItem('IdAccount');
@@ -26,6 +32,26 @@ export class AppointmentTeacherComponent implements OnInit {
   }
 
 
+  SearchDate() {
+    this.flagSearch=true
+    console.log('Starrrrrrrrt Date')
+    console.log(this.StartDate);
+
+    console.log('End Date')
+    console.log(this.EndDate);
+    this.http.get('https://localhost:44363/api/Appointment/SerachBetweenTwoDate/' + this.TeacherId + '/' + this.EndDate + '/' + this.StartDate).subscribe((result) => {
+      this.SearchBetweenTwoDate = result;
+      console.log('searchDate')
+      console.log(this.SearchBetweenTwoDate);
+    })
+  }
+
+  CleatDate(){
+    this.flagSearch=false
+    this.EndDate=null;
+    this.StartDate=null;
+  }
+
   Reject(appointmentid: any) {
     console.log('reject');
     console.log(appointmentid);
@@ -33,7 +59,6 @@ export class AppointmentTeacherComponent implements OnInit {
       console.log(result);
     });
     window.location.reload();
-
   }
 
 
