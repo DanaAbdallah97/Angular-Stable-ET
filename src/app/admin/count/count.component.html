@@ -1,33 +1,35 @@
 <div class="container-fluid pt-4 px-4">
     <div class="bg-light text-center rounded p-4" style="margin-left:20%;">
-        <h1 style="color: #1f2b7b;margin-left: -91%; font-weight: bold;">Count</h1>
+        <!-- <h1 style="color: #1f2b7b;margin-left: -91%; font-weight: bold;">Count</h1> -->
         <div class="d-flex align-items-center justify-content-between mb-4">
             <!-- <button class="bt btn-success" (click)="createcategory()">Create Category</button> -->
         </div>
-        <div class="table-responsive">
-            <table class="table text-start align-middle table-bordered table-hover mb-0">
-                <thead>
-                    <tr class="text-dark"  style="color:#1f2b7b!important">
-                        <th scope="col">Number Of Students </th>
-                        <th scope="col">Number Of Teachers </th>
-                 
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{{numberOfStudents}}</td>
-                        <td>{{numberOfTeachers}}</td>
-                      
-                        <!-- <td><button class="btn btn-sm btn-info"
-                            (click)="openUpdateDialog(obj.testmonialid ,obj.testmonialcomment , obj.rate, obj.testmonialstatus, obj.acoount)">"
-                            Edit</button></td> -->
-                    <!-- <td><button class="btn btn-sm btn-danger"
-                            (click)="openDeleteDialog(obj.testmonialid)">Delete</button></td> -->
-                    </tr>
+      
+          <!-- Sale & Revenue Start -->
+          <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-sm-6 col-xl-3">
+                    <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                        <i class="fa fa-chart-line fa-3x text-primary"></i>
+                        <div class="ms-3">
+                            <h2 class="mb-2">Number Of Students</h2>
+                            <h4 class="mb-0">{{numberOfStudents}}</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                    <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                        <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                        <div class="ms-3">
+                            <h2 class="mb-2">Number Of Teachers</h2>
+                            <h4 class="mb-0">{{numberOfTeachers}}</h4>
+                        </div>
+                    </div>
+                </div>
 
-                </tbody>
-            </table>
+            </div>
         </div>
+        <!-- Sale & Revenue End -->
     </div>
 </div>
 
