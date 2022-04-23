@@ -24,7 +24,6 @@
                         <th scope="col">Birth Of Date</th>
                         <th scope="col">Profile Picture</th>
                         <th scope="col">Account status</th>
-                        <th scope="col">Certificates</th>
                         <th scope="col">Specialization</th>
                     </tr>
                 </thead>
@@ -39,11 +38,12 @@
                         <td>{{obj.birthofdate|date}}</td>
                         <td><img src="../../../assets/img/{{obj.profilepicture}}" style="width:70%;height: 70%;"></td>
                         <td>{{obj.accountstatus}}</td>
-                        <td>{{obj.certificate}}</td>
                         <td>{{obj.specialization}}</td>
-                        <td><button class="btn btn-secondary" (click)="openUpdateDialog(obj.acoountid,obj.roleid,obj.firstname,obj.lastname,obj.email,obj.accountpassword,obj.phonenumber,obj.gender,obj.birthofdate,obj.profilepicture,obj.certificate,obj.specialization, obj.accountstatus)">Change Status</button></td>
-                        <td><button class="btn btn-sm btn-danger" (click)="openDeleteDialog(obj.acoountid)">Delete</button></td>
-                        <td><button class="btn btn-sm btn-secondary" style="background-color: #1f2b7b;" (click)="openSendMessageDialog(obj.EmailTo,obj.textMsg,obj.Password,obj.EmailFrom)">Send Email</button></td>   
+                        <!-- <td><button class="btn btn-secondary" (click)="openUpdateDialog(obj.acoountid,obj.roleid,obj.firstname,obj.lastname,obj.email,obj.accountpassword,obj.phonenumber,obj.gender,obj.birthofdate,obj.profilepicture,obj.certificate,obj.specialization, obj.accountstatus)">Change Status</button></td> -->
+                        <td><button _ngcontent-iiy-c151="" type="button" class="btn btn-success" (click)="accept(obj.acoountid,obj.roleid,obj.firstname,obj.lastname,obj.email,obj.accountpassword,obj.phonenumber,obj.gender,obj.birthofdate,obj.profilepicture,obj.certificate,obj.specialization, 'accept')"> Accept </button></td>
+                        <td><button _ngcontent-iiy-c151="" style="background-color: #ce9326;" class="btn btn-danger" (click)="reject(obj.acoountid,obj.roleid,obj.firstname,obj.lastname,obj.email,obj.accountpassword,obj.phonenumber,obj.gender,obj.birthofdate,obj.profilepicture,obj.certificate,obj.specialization, 'reject')"> Reject </button></td>
+                        <td><button class="btn btn-danger" (click)="openDeleteDialog(obj.acoountid)">Delete</button></td>
+                        <td><button class="btn btn-secondary" style="background-color: #1f2b7b;" (click)="openSendMessageDialog(obj.EmailTo,obj.textMsg,obj.Password,obj.EmailFrom)">Send Email</button></td>   
                         <td></td>
                      </tr>
 
@@ -73,7 +73,7 @@
                 <option class="form-control" value="Accept">Accept</option>
                 <option class="form-control" value="Reject">Reject</option>
             </select>  <br />
-         
+
         </ul>
         <button class="btn btn-secondary"  style="background-color: #1f2b7b;">Update</button>  
     </form>
@@ -93,38 +93,38 @@
       </mat-dialog-content>
 </ng-template>
 
-<ng-template #callSendEmailDialog>
+<ng-template #callSendEmailDialog >
     <!-- //(ngSubmit)="SendEmail()" -->
-    <form [formGroup]="SendEmailForm" >
+    <form [formGroup]="SendEmailForm" style="width:600px!important;">
         <ul>
             <li>
-                <mat-form-field class="example-full-width" appearance="fill">
+                <mat-form-field style="width: 500px !important;" class="example-full-width" appearance="fill">
                     <mat-label> enter EmailTo </mat-label>
-                    <input type="text" matInput formControlName="EmailTo" [(ngModel)]="previousMsgs.EmailTo">
+                    <input  type="text" matInput formControlName="EmailTo" [value]="previousData.email" [(ngModel)]="previousMsgs.EmailTo">
                 </mat-form-field>
             </li>
 
             <li>
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>enter EmailFrom </mat-label>
+                <mat-form-field style="width: 500px !important;" class="example-full-width" appearance="fill">
+                    <mat-label >enter EmailFrom </mat-label>
                     <input type="text" matInput formControlName="EmailFrom"
-                        [(ngModel)]="previousMsgs.EmailFrom" placeholder="enter the EmailFrom ">
+                       [value]="emailfromTeracher" readonly [(ngModel)]="emailfromTeracher" placeholder="enter the EmailFrom ">
                 </mat-form-field>
             </li>  
 
             <li>
-                <mat-form-field class="example-full-width" appearance="fill">
+                <mat-form-field style="width: 500px !important;" class="example-full-width" appearance="fill">
                     <mat-label>enter the Password </mat-label>
                     <input type="password" matInput formControlName="Password"
-                        [(ngModel)]="previousMsgs.Password" placeholder="enter the Password ">
+                        [(ngModel)]="Emailpassword" readonly [value]="Emailpassword" placeholder="enter the Password ">
                 </mat-form-field>
             </li>   
 
             <li>
-                <mat-form-field class="example-full-width" appearance="fill">
+                <mat-form-field style="width: 500px !important;" class="example-full-width" appearance="fill">
                     <mat-label>enter the email text</mat-label>
-                    <input type="text" matInput formControlName="textMsg"
-                        [(ngModel)]="previousMsgs.textMsg" placeholder="enter the text msg ">
+                    <textarea type="text" matInput formControlName="textMsg"  rows="7" cols="200"
+                        [(ngModel)]="previousMsgs.textMsg" placeholder="enter the text msg "></textarea>
                 </mat-form-field>
             </li>         
 

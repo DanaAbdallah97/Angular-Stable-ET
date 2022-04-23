@@ -16,10 +16,18 @@ export class ManageTeachersComponent implements OnInit {
   @ViewChild('callDeleteDialog') callDeleteDialog! :TemplateRef<any>
   @ViewChild('callSendEmailDialog') callSendEmailDialog! :TemplateRef<any>
 
+
+
+  emailfromTeracher:any='Etreeks@gmail.com';
+  Emailpassword='123etreeks';
+
   TeacherName:string='';
   previousData:any={}
   previousMsgs:any={}
+  test:any={};
+  test2:any={};
   teachername:any;
+  emailtoTeacher:any;
   constructor(private teachersAndStudents:TeachersAndStudentsService,public http:HttpClient,private dialog:MatDialog) { }
   AllTeachers:any={}
   ngOnInit(): void {
@@ -27,7 +35,8 @@ export class ManageTeachersComponent implements OnInit {
       this.AllTeachers=res;
     })    
   }
-  
+  dataemail:any;
+
   updatForm:FormGroup=new FormGroup
   (
     {
@@ -45,8 +54,87 @@ export class ManageTeachersComponent implements OnInit {
       accountstatus:new FormControl()      
     }
   )
+
+
+
+accept(acoountid1:any,roleid1:any,firstname1:any,lastname1:any,email1:any,accountpassword1:any,phonenumber1:any,gender1:any,birthofdate1:any,profilepicture1:any,certificate1:any,specialization1:any,accountstatus1:any){
+this.emailtoTeacher=email1;
+  this.test={
+    acoountid:acoountid1,
+    roleid:roleid1,
+    firstname:firstname1,
+    lastname:lastname1,
+    email:email1,
+    phonenumber:phonenumber1,
+    gender:gender1,
+    birthofdate:birthofdate1,
+    profilepicture:profilepicture1,
+    certificate:certificate1,
+    specialization:specialization1,
+    accountstatus:accountstatus1, 
+    accountpassword:accountpassword1
+  }   
+
+  this.http.put('https://localhost:44363/api/Account/updateAccount',this.test).subscribe((reult)=>{
+console.log(reult);
+
+
+
+  });
+
+debugger
+this.dataemail={
+  textMsg: 'accept',
+  EmailFrom:'Etreeks@gmail.com',
+  Password:'123etreeks',
+  emailto:'dka.abdallah@gmail.com'
+}
+this.teachersAndStudents.sendemailcontact(this.dataemail);
+
+window.location.reload();
+}
+
+reject(acoountid1:any,roleid1:any,firstname1:any,lastname1:any,email1:any,accountpassword1:any,phonenumber1:any,gender1:any,birthofdate1:any,profilepicture1:any,certificate1:any,specialization1:any,accountstatus1:any){
+  this.emailtoTeacher=email1;
+    this.test2={
+      acoountid:acoountid1,
+      roleid:roleid1,
+      firstname:firstname1,
+      lastname:lastname1,
+      email:email1,
+      phonenumber:phonenumber1,
+      gender:gender1,
+      birthofdate:birthofdate1,
+      profilepicture:profilepicture1,
+      certificate:certificate1,
+      specialization:specialization1,
+      accountstatus:accountstatus1, 
+      accountpassword:accountpassword1
+    }   
+  
+    this.http.put('https://localhost:44363/api/Account/updateAccount',this.test2).subscribe((reult)=>{
+  console.log(reult);
+  
+  
+  
+    });
+  
+  debugger
+  this.dataemail={
+    textMsg: 'reject',
+    EmailFrom:'Etreeks@gmail.com',
+    Password:'123etreeks',
+    emailto:'dka.abdallah@gmail.com'
+  }
+  this.teachersAndStudents.sendemailcontact(this.dataemail);
+  
+  window.location.reload();
+  }
+  
+
   openUpdateDialog(acoountid1:any,roleid1:any,firstname1:any,lastname1:any,email1:any,accountpassword1:any,phonenumber1:any,gender1:any,birthofdate1:any,profilepicture1:any,certificate1:any,specialization1:any,accountstatus1:any)
-  {   debugger
+  {   
+
       this.previousData={
         acoountid:acoountid1,
         roleid:roleid1,
@@ -63,22 +151,23 @@ export class ManageTeachersComponent implements OnInit {
         accountpassword:accountpassword1
       }    
     this.updatForm.controls['acoountid'].setValue(acoountid1);
-    this.dialog.open(this.callUpdateTeacherDialog)
+    this.teachersAndStudents.acceptorder(email1);
+   // this.dialog.open(this.callUpdateTeacherDialog)
   }
   SearchDialog(){
 
   }
   updateTeacher(){
-    debugger
+    
     this.teachersAndStudents.updateAccountStatus(this.previousData);
     console.log(this.previousData);
-    debugger
+    
     //this.teachersAndStudents.getAllTeachers();
     window.location.reload();
   }
 
   inputValue(ev:any){
-    debugger
+    
     this.TeacherName=ev.target.value;
     console.log(ev.target.value);
   }
@@ -111,8 +200,8 @@ export class ManageTeachersComponent implements OnInit {
     }
     
     callJWT(){
-      debugger
       this.teachersAndStudents.sendemailcontact(this.SendEmailForm.value);    
+      window.location.reload();
     }
     openDeleteDialog(acoountid :any){
       const dialogRef= this.dialog.open(this.callDeleteDialog);
@@ -129,7 +218,16 @@ export class ManageTeachersComponent implements OnInit {
       })
      }
     
-
+    //  Accept(accountid: any) {
+    //    debugger
+    //   console.log('Accept');
+    //   console.log(accountid);
+    //   this.http.put('https://localhost:44363/api/account/UpdateAccount/' + accountid + this.AcceptStat, ' ').subscribe((result) => {
+    //     console.log(result);
+    //   });
+    //   window.location.reload();
+  
+    // }
 
 
 }

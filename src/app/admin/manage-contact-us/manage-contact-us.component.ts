@@ -13,6 +13,8 @@ export class ManageContactUsComponent implements OnInit {
   allMessages:any={} 
   previousMessgae:any={}
   
+  Emailto:any;
+
   constructor(public contact:ContactusService,private dialog:MatDialog) { }
   contactUsResult:any={}
   ngOnInit(): void {

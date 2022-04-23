@@ -11,7 +11,7 @@ export class TeachersAndStudentsService {
   }];
   constructor(private http:HttpClient, private toaster:ToastrService) { }
   getAllTeachers(){
-    debugger
+    
     return this.http.get('https://localhost:44363/api/account/getteacher');
   }
   getAllStudents(){
@@ -36,21 +36,20 @@ export class TeachersAndStudentsService {
 
   SearchTeacherByName(data:any)
     {
-      debugger
       return this.http.post('https://localhost:44363/api/account/searchTeacher/',data);
     
     }
-
+    
   acceptorder(data:any){
-  debugger;
+  data.EmailFrom='Etreeks@gmail.com';
+  data.Password='123etreeks';
+  data.textMsg='Accept';
   this.http.post('https://localhost:44363/api/jwt/SendEmail/',data).subscribe(
     (res:any)=>{
-      debugger;
   }, err=>{
     });
 }
 updateAccountStatus(body:any){
-  debugger
  // body.image_path=this.display_image;
   this.http.put('https://localhost:44363/api/account/UpdateAccount/',body).subscribe((res)=>{
     //this.toaster.success('updated succefully')
@@ -59,7 +58,7 @@ updateAccountStatus(body:any){
 }
 
 sendemailcontact(data:any){
-  debugger;
+  debugger
   this.http.post('https://localhost:44363/api/jwt/SendEmail/',data).subscribe(
     (res:any)=>{
       debugger;
