@@ -13,7 +13,6 @@ export class AppComponent {
 constructor(){
   console.log('app ccccccccccccccccccc');
   console.log(localStorage.getItem('UserLoginFlage'));
-
 }
 }
 

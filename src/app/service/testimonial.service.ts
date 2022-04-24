@@ -8,7 +8,7 @@ export class TestimonialService {
 
   constructor(private http:HttpClient, private toaster:ToastrService) { }
 
-  urlGetTestmonial= 'https://localhost:44363/api/Testmonial/getTestmonial';
+  urlGetTestmonial= 'https://localhost:44363/api/Testmonial/GetTestmonialAccount';
 
 
   getTestmonial() {

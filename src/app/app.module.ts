@@ -18,6 +18,7 @@ import { tokeninterceptor } from './interceptor/token.interceptor';
 import { CourseComponent } from './course/course.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AuthModule } from './auth/auth.module';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { SearchTeacherComponent } from './search-teacher/search-teacher.component';
@@ -51,6 +52,7 @@ import { AppointmentStudentComponent } from './appointment-student/appointment-s
     SharedModule,
     SharedRoutingModule,
     HttpClientModule,
+    MatDialogModule,
     ToastNoAnimationModule.forRoot(),
     ToastrModule.forRoot({
       timeOut:5000,
