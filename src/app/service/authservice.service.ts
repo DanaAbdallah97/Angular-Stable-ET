@@ -56,24 +56,54 @@ export class AuthserviceService {
         console.log('decode', data);
 
         localStorage.setItem('user', JSON.stringify({ ...data }));
-        if (data.role == 'Admin') {
-          this.router.navigate(['admin/admindashboard']);
-        } 
-        else if (data.role == 'Teacher') {
+
+         if (data.role == 'Teacher' && data.actort=='accept' ) {
           this.router.navigate(['teacher/teacherDashboard']).then(() => {
             window.location.reload();
           });
           //link Teacher with pag
-        } else if (data.role == 'Student') {
+        }
+        else if (data.role == 'Teacher' && data.actort=='waiting' ) {
+          this.router.navigate(['teacher/waitingTeacher']).then(() => {
+            window.location.reload();
+            localStorage.clear();
+          });
+          //link Teacher with pag
+        }
+        else if (data.role == 'Teacher' && data.actort=='reject' ) {
+          this.router.navigate(['teacher/rejectTeacher']).then(() => {
+            window.location.reload();
+            localStorage.clear();
+          });
+          //link Teacher with pag
+        }
+      });
+
+
+      this.http.post('https://localhost:44363/api/JWT/authStudent', body, requestOptions).subscribe((res)=>{
+        console.log(res);
+        const response = {
+          token: res.toString(),
+        };
+
+        localStorage.setItem('token', response.token);
+        let data: any = jwt_decode(response.token);
+        console.log('decode', data);
+
+        localStorage.setItem('user', JSON.stringify({ ...data }));
+
+         if (data.role == 'Student') {
           // link sudent with pages
           localStorage.setItem('UserLoginFlage', 'true');
           console.log('Login Studnt');
           console.log(localStorage.getItem('UserLoginFlage'));
            this.router.navigate(['/home']);
+        }else if (data.role == 'Admin') {
+          this.router.navigate(['admin/admindashboard']);
+        } 
 
 
-        }
-      });
+      })
 
       this.http.get('https://localhost:44363/api/Account/getAccountId/'+this.EmailId).subscribe((result) => {
         this.AccountId = result;

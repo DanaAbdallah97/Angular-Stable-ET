@@ -8,24 +8,20 @@
     <div id="testimonial4"
       class="carousel slide testimonial4_indicators testimonial4_control_button thumb_scroll_x swipe_x"
       data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2000">
-
       <div class="carousel-inner" role="listbox">
         <div class="carousel-item active">
           <div ngModel class="testimonial4_slide">
-
-
-
-            
             <img style="margin-bottom: 30px; margin-top: -10px;" src="./assets/img/{{this.p1}}"
               class="img-circle img-responsive" />
+            <h1><b>{{Name1}}</b> </h1>
             <p>{{FirstComment}}</p>
-
           </div>
         </div>
         <div ngModel class="carousel-item">
           <div class="testimonial4_slide">
             <img style="margin-bottom: 30px; margin-top: -10px;" src="./assets/img/{{this.p2}}"
               class="img-circle img-responsive" />
+            <h1><b>{{Name2}}</b> </h1>
             <p> {{SecoundComment}}</p>
           </div>
         </div>
@@ -33,6 +29,8 @@
           <div class="testimonial4_slide">
             <img style="margin-bottom: 30px; margin-top: -10px;" src="./assets/img/{{p3}}"
               class="img-circle img-responsive" />
+            <h1><b>{{Name3}}</b> </h1>
+
             <p> {{TheredComment}}</p>
           </div>
         </div>
@@ -44,6 +42,39 @@
         <span class="carousel-control-next-icon"></span>
       </a>
     </div>
+  </div>
+
+  <div *ngIf="flage" style="margin-left: 220px;" class="col-lg-8">
+    <form  class="form-contact contact_form" #TestimonialPost="ngForm"
+      (ngSubmit)="onSubmit(TestimonialPost.value)">
+
+      <!-- Testmonial Id -->
+      <input class="form-control" type="number" name="testmonialid" ngModel placeholder="id" [value]="testmonialid"
+        [(ngModel)]="testmonialid" hidden />
+
+      <!-- Account Id -->
+      <input class="form-control" type="number" name="acoountid" ngModel placeholder="id" [value]="AccountId"
+        [(ngModel)]="AccountId" hidden />
+
+      <!-- Rate -->
+      <input class="form-control" type="number" name="rate" ngModel placeholder="id" [value]="rate" [(ngModel)]="rate"
+        hidden />
+
+      <!-- Testmonial status -->
+      <input class="form-control" type="text" name="testmonialstatus" ngModel placeholder="id"
+        [value]="testmonialstatus" [(ngModel)]="testmonialstatus" hidden />
+
+      <!-- Comment -->
+      <br>
+      <br><br>
+      <input style="background-color: white;  text-align: center;  " class="form-control" class="form-control"
+        type="text" name="testmonialcomment" ngModel placeholder="Add Comment" />
+      <br><br>
+      <button class="button button-contactForm boxed-btn" type="submit">
+        Comment
+      </button>
+      <br /><br />
+    </form>
   </div>
 </section>
 <!-- partial -->

@@ -5,8 +5,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppointmentComponent } from '../appointment/appointment.component';
 import { AppointmentTeacherComponent } from './appointment-teacher/appointment-teacher.component';
 import { ManageCoursesComponent } from './manage-courses/manage-courses.component';
+import { NotAcceptTeacherComponent } from './not-accept-teacher/not-accept-teacher.component';
 import { TeacherProfileComponent } from './teacher-profile/teacher-profile.component';
 import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.component';
+import { WaitingTeacherComponent } from './waiting-teacher/waiting-teacher.component';
+
 
 const routes: Routes = [
   {
@@ -25,6 +28,14 @@ const routes: Routes = [
     path: 'teacherUpdateProfile',
     component: TeacherProfileComponent
   },
+  {
+    path:'rejectTeacher',
+    component:NotAcceptTeacherComponent
+  },
+  {
+    path:'waitingTeacher',
+    component: WaitingTeacherComponent
+  }
 ];
 
 @NgModule({

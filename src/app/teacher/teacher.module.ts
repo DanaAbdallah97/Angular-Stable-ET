@@ -11,6 +11,9 @@ import { DialogCoureComponent } from './dialog-coure/dialog-coure.component';
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogCreateCoursComponent } from './dialog-create-cours/dialog-create-cours.component';
+import { NotAcceptTeacherComponent } from './not-accept-teacher/not-accept-teacher.component';
+import { WaitingTeacherComponent } from './waiting-teacher/waiting-teacher.component';
+import { DialogAppointmentComponent } from '../dialog-appointment/dialog-appointment.component';
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import { DialogCreateCoursComponent } from './dialog-create-cours/dialog-create-
     AppointmentTeacherComponent,
     ManageCoursesComponent,
     DialogCoureComponent,
-    DialogCreateCoursComponent
+    DialogCreateCoursComponent,
+    NotAcceptTeacherComponent,
+    WaitingTeacherComponent,
+    DialogAppointmentComponent
   ],
   imports: [
     CommonModule,

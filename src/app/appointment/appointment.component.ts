@@ -3,6 +3,8 @@ import { CourseService } from '../service/course.service';
 import {DomSanitizer,SafeResourceUrl,} from '@angular/platform-browser';
 import { AppointmentService } from '../service/appointment.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogAppointmentComponent } from '../dialog-appointment/dialog-appointment.component';
 
 
 @Component({
@@ -25,7 +27,7 @@ endDate="1997-07-14";
 TeacherName: any = [];
 appointmentstatus='waiting'
 
-  constructor(private course:CourseService ,public sanitizer:DomSanitizer, public appointment: AppointmentService,private router:Router,
+  constructor(private course:CourseService ,public sanitizer:DomSanitizer, public appointment: AppointmentService,private router:Router, private dialog: MatDialog
     ) { 
     this.course.getCourseInformationById().subscribe((result)=>{
       console.log('this.courseInformation');
@@ -51,12 +53,18 @@ appointmentstatus='waiting'
   }
 
   onSubmit(data: any) {
+
+    if(localStorage.getItem('IdAccount')==null)
+    {
+      this.dialog.open(DialogAppointmentComponent)
+    }
+    else{
     console.warn(data);
     this.appointment.createAppointment(data);
     this.router.navigate(['/home']).then(() => {
       window.location.reload();
     });
-
+  }
   }
 
   ngOnInit(): void {
