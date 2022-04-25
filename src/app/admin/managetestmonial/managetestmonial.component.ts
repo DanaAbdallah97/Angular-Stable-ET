@@ -9,7 +9,10 @@ import { TestimonialService } from 'src/app/service/testimonial.service';
 })
 export class ManagetestmonialComponent implements OnInit { 
   @ViewChildren('callDeleteDialog') callDeleteDialog! :TemplateRef<any>
-  
+  statusAccept:any='Accept';
+  statusReject:any='Reject';
+  state:any='Accept';
+
   constructor(public testomonial:TestimonialService , private dialog:MatDialog) { }
   testmonialResult:any={}
   ngOnInit(): void {
@@ -28,6 +31,16 @@ export class ManagetestmonialComponent implements OnInit {
          console.log("thank you");
       }
     })
+   }
+   Accept(testimonialstatus:any){
+     this.state='Accept'
+    testimonialstatus=this.statusAccept;
+    window.location.reload();
+   }
+   Reject(testimonialstatus:any){
+    this.state='Reject'
+    testimonialstatus=this.statusReject;
+    window.location.reload();
    }
 }
 

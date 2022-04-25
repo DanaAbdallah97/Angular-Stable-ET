@@ -16,7 +16,7 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
 const routes: Routes = [
   {
     path: 'admindashboard',
-    component: AdmindashboardComponent,
+    component: ChartComponent,
   },
   {
     path: 'managecategory',

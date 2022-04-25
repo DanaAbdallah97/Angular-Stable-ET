@@ -11,8 +11,6 @@
                     <tr class="text-dark"  style="color:#1f2b7b!important">
                         <th scope="col">Testomonial comment </th>
                         <th scope="col">rate</th>
-                        <th scope="col">testmonial status</th>
-                        <th scope="col">acoount</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -20,12 +18,16 @@
                         <td>{{obj.testmonialcomment}}</td>
                         <td>{{obj.rate}}</td>
                         <td>{{obj.testmonialstatus}}</td>
-                        <td>{{obj.acoount}}</td>
-                        <!-- <td><button class="btn btn-sm btn-info"
-                            (click)="openUpdateDialog(obj.testmonialid ,obj.testmonialcomment , obj.rate, obj.testmonialstatus, obj.acoount)">"
-                            Edit</button></td> -->
-                    <td><button class="btn btn-sm btn-danger"
-                            (click)="openDeleteDialog(obj.testmonialid)">Delete</button></td>
+                       
+                            <td>
+                                <button class="btn  btn-success" (click)="Accept(obj.testmonialstatus)">Accept </button>
+                             </td>
+                             <td>
+                                <button class="btn  btn-warning" (click)="Reject(obj.testmonialstatus)">Reject </button>
+                             </td>
+                    <td>
+                        <button class="btn  btn-danger" (click)="openDeleteDialog(obj.testmonialid)">Delete</button>
+                     </td>
                     </tr>
 
                 </tbody>

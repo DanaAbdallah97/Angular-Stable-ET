@@ -10,10 +10,10 @@ import { TeachersAndStudentsService } from 'src/app/service/teachers-and-student
 export class ChartComponent implements OnInit {
 
   constructor(private teachersAndStudents:TeachersAndStudentsService) { }
-  numberOfStudents:number=0;
-  numberOfTeachers:number=0;
-  numberOfCourses:number=0;
-  numberOfCategory:number=0;
+  numberOfStudents:number=8;
+  numberOfTeachers:number=7;
+  numberOfCourses:number=5;
+  numberOfCategory:number=6;
   BarChart :any= [];
   ngOnInit(): void {
     console.log('numberOfTeachers',this.numberOfTeachers)
@@ -48,9 +48,9 @@ ngAfterViewInit() {
   new Chart(this.ctx, { 
     type: 'bar',
     data: {
-      labels: ['Teachers', 'Students', 'Courses', 'Category'],
+      labels: ['Teachers', 'Students', 'Courses','Category','', ],
       datasets: [{        
-        data: [this.numberOfCategory],
+        data: [this.numberOfTeachers,this.numberOfStudents,7,8,5],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(255, 159, 64, 0.2)',

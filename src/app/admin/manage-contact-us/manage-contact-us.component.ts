@@ -10,6 +10,10 @@ import { ContactusService } from 'src/app/service/contactus.service';
 })
 export class ManageContactUsComponent implements OnInit {
    @ViewChild('callSendEmailDialog') callSendEmailDialog! :TemplateRef<any>
+
+   emailfromTeracher:any='Etreeks@gmail.com';
+   Emailpassword='123etreeks';
+ 
   allMessages:any={} 
   previousMessgae:any={}
   
@@ -29,7 +33,7 @@ export class ManageContactUsComponent implements OnInit {
     Password:new FormControl(),
     EmailFrom:new FormControl(),
  })
-  openSendMessageDialog(EmailTo1:any, textMsg1:any,Password1:any,EmailFrom1:any)
+  openSendMessageDialog(EmailTo1:any,textMsg1:any,Password1:any,EmailFrom1:any)
   {   
       this.previousMessgae={
         EmailTo:EmailTo1,
@@ -43,9 +47,9 @@ export class ManageContactUsComponent implements OnInit {
   
   
   
-  callJWT(){
-    debugger
-    this.contact.sendemailcontact(this.SendEmailForm.value);    
+  callJWT(){    
+    this.contact.sendemailcontact(this.SendEmailForm.value); 
+    window.location.reload();   
   }
   
 

@@ -10,7 +10,7 @@
                     <tr class="text-dark"  style="color:#1f2b7b!important">
                         <th scope="col">Message Subject </th>
                         <th scope="col">Message Body </th>
-                        <th scope="col">Message Sender status</th>
+                        <th scope="col">Message Sender </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -18,7 +18,7 @@
                         <td>{{obj.subject}}</td>
                         <td>{{obj.messagebody}}</td>
                         <td>{{obj.senderemail}}</td>
-                        <td><button class="btn btn-sm btn-secondary" style="background-color: #1f2b7b;" (click)="openSendMessageDialog(obj.messagebody,obj.senderemail,obj.Password,obj.EmailFrom)">Send Email</button></td>                      
+                        <td><button class="btn btn-sm btn-secondary" style="background-color: #1f2b7b;" (click)="openSendMessageDialog(obj.senderemail,obj.messagebody,'123etreeks','Etreeks@gmail.com')">Send Email</button></td>                      
                         </tr>
 
                 </tbody>
@@ -31,38 +31,35 @@
 <mat-dialog-content class="mat-typography">
     <ng-template #callSendEmailDialog>
         <!-- //(ngSubmit)="SendEmail()" -->
-        <form [formGroup]="SendEmailForm" >
+        <form [formGroup]="SendEmailForm" style="width:600px!important;">
             <ul>
                 <li>
-                    <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-form-field style="width: 500px !important;" class="example-full-width" appearance="fill">
                         <mat-label> enter EmailTo </mat-label>
                         <input type="text"  matInput formControlName="EmailTo" [(ngModel)]="previousMessgae.EmailTo">
-                    </mat-form-field>
-                                <!-- student id -->
-  
+                    </mat-form-field>  
                 </li>
 
                 <li>
-                    <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-form-field style="width: 500px !important;" class="example-full-width" appearance="fill">
                         <mat-label>enter EmailFrom </mat-label>
-                        <input type="text" matInput formControlName="EmailFrom"
-                            [(ngModel)]="previousMessgae.EmailFrom" placeholder="enter the EmailFrom ">
+                        <input type="text" matInput formControlName="EmailFrom" [value]="emailfromTeracher" readonly
+                            [(ngModel)]="emailfromTeracher" placeholder="enter the EmailFrom ">
                     </mat-form-field>
                 </li>  
 
                 <li>
-                    <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-form-field style="width: 500px !important;"  class="example-full-width" appearance="fill">
                         <mat-label>enter the Password </mat-label>
-                        <input type="password" matInput formControlName="Password"
-                            [(ngModel)]="previousMessgae.Password" placeholder="enter the Password ">
+                        <input type="password" matInput formControlName="Password" [value]="Emailpassword" readonly
+                            [(ngModel)]="Emailpassword" placeholder="enter the Password ">
                     </mat-form-field>
-                </li>   
-
-                <li>
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>enter the  textMsg</mat-label>
-                        <input type="text" matInput formControlName="textMsg"
-                            [(ngModel)]="previousMessgae.textMsg" placeholder="enter the textMsg ">
+                </li>
+                 <li>
+                    <mat-form-field style="width: 500px !important;" class="example-full-width" appearance="fill">
+                        <mat-label>enter the  text message </mat-label>
+                        <textarea type="text" matInput formControlName="textMsg" rows="7" cols="200"
+                            placeholder="enter the textMsg "></textarea>
                     </mat-form-field>
                 </li>         
 
