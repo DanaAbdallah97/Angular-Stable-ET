@@ -82,7 +82,7 @@ console.log(reult);
 
   });
 
-debugger
+
 this.dataemail={
   textMsg: 'accept',
   EmailFrom:'Etreeks@gmail.com',
@@ -119,7 +119,7 @@ reject(acoountid1:any,roleid1:any,firstname1:any,lastname1:any,email1:any,accoun
   
     });
   
-  debugger
+  
   this.dataemail={
     textMsg: 'reject',
     EmailFrom:'Etreeks@gmail.com',
