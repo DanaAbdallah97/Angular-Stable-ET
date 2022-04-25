@@ -1,0 +1,74 @@
+<app-admindashboard></app-admindashboard>
+
+<br><br>
+
+<div style="margin-left: 300px;">
+    <h1 style="color: #030431; margin-left: 40px; font-size: 40px">Update Profile</h1>
+
+    <div class="col-lg-8">
+      <form style="margin-left: 25px; width: 400px" class="form-contact contact_form" #studentPost="ngForm"
+        (ngSubmit)="onSubmit(studentPost.value)">
+  
+        <!-- student id -->
+        <input class="form-control" type="number" name="acoountid" ngModel placeholder="id" [value]="studentid"
+          [(ngModel)]="studentid" hidden />
+        <br />
+  
+
+        <!-- student role id -->
+        <input class="form-control" type="number" name="roleid" ngModel placeholder="role" [value]="roldeidStudnet"
+          [(ngModel)]="roldeidStudnet" hidden />
+        <br />
+        <!-- first name -->
+        <input class="form-control" type="text" name="firstname" ngModel placeholder="fname" required minlength="4"
+          [value]="firstname" [(ngModel)]="firstname" />
+        <br />
+        <!-- last name -->
+        <input class="form-control" type="text" name="lastname" ngModel placeholder="lastname" [value]="lastname"
+          [(ngModel)]="lastname" />
+        <br />
+        <!-- password -->
+        <input class="form-control" type="password" name="accountpassword" ngModel placeholder="password"
+          [value]="password" [(ngModel)]="password" />
+        <br />
+        <!-- email -->
+        <input class="form-control" class="form-control" type="email" name="email" ngModel placeholder="email"
+          [value]="email" [(ngModel)]="email" />
+        <br />
+        <!-- phone number -->
+        <input class="form-control" type="text" name="phonenumber" ngModel placeholder="phonenumber" [value]="phonenumber"
+          [(ngModel)]="phonenumber" />
+        <br />
+        <!-- gender -->
+        <select class="form-control" name="gender" ngModel [value]="gender" [(ngModel)]="gender">
+          <option value="" disabled selected hidden>Choose Gender...</option>
+          <option class="form-control" value="male">Male</option>
+          <option class="form-control" value="female">Female</option>
+        </select> <br />
+        <!-- date of birth -->
+        <input class="form-control" type="date" name="birthofdate" ngModel placeholder="Birth of date"
+          [value]="birthofdate" [(ngModel)]="birthofdate" /> <br>
+        <table>
+          <tr>
+            <td>
+              <!-- profile picture -->
+              <input style="opacity: 0;" id="file" type="file" (change)="onFileSelected($event)" #fileInput>
+              <label class="genric-btn primary" for="file">Profile Picture</label>
+              <!-- <input class="form-control" type="text" name="profilepicture" ngModel placeholder="profilepicture" /> -->
+            </td>
+          </tr>
+        </table>
+        <!-- <button  (click)="fileInput.click()" class="genric-btn primary">Profile Picture</button> -->
+        <!-- <input class="form-control" type="text" name="profilepicture" ngModel placeholder="profilepicture" /> -->
+        <br /> <br />
+        <br><br>
+        <button class="button button-contactForm boxed-btn" type="submit">
+          Update Profile
+        </button>
+        <br /><br /><br /><br /><br />
+      </form>
+    </div>
+    <img src="./assets/img/edit.png" width="270px" height="270px" style="position: absolute; margin-left: 660px;
+    margin-top: -775px;" alt="login Image">
+  </div>
+  

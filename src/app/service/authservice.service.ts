@@ -16,7 +16,7 @@ export class AuthserviceService {
   AccountId: any;
   IdAccount: any;
 
-  
+
   EmailId: any;
   constructor(
     private router: Router,
@@ -42,76 +42,67 @@ export class AuthserviceService {
       headers: new HttpHeaders(headerDir),
     };
 
-    this.http
-      .post('https://localhost:44363/api/JWT/auth', body, requestOptions)
-      .subscribe((res: any) => {
-
-        console.log(res);
-        const response = {
-          token: res.toString(),
-        };
-
-        localStorage.setItem('token', response.token);
-        let data: any = jwt_decode(response.token);
-        console.log('decode', data);
-
-        localStorage.setItem('user', JSON.stringify({ ...data }));
-
-         if (data.role == 'Teacher' && data.actort=='accept' ) {
-          this.router.navigate(['teacher/teacherDashboard']).then(() => {
-            window.location.reload();
-          });
-          //link Teacher with pag
-        }
-        else if (data.role == 'Teacher' && data.actort=='waiting' ) {
-          this.router.navigate(['teacher/waitingTeacher']).then(() => {
-            window.location.reload();
-            localStorage.clear();
-          });
-          //link Teacher with pag
-        }
-        else if (data.role == 'Teacher' && data.actort=='reject' ) {
-          this.router.navigate(['teacher/rejectTeacher']).then(() => {
-            window.location.reload();
-            localStorage.clear();
-          });
-          //link Teacher with pag
-        }
-      });
-
-
-      this.http.post('https://localhost:44363/api/JWT/authStudent', body, requestOptions).subscribe((res)=>{
-        console.log(res);
-        const response = {
-          token: res.toString(),
-        };
-
-        localStorage.setItem('token', response.token);
-        let data: any = jwt_decode(response.token);
-        console.log('decode', data);
-
-        localStorage.setItem('user', JSON.stringify({ ...data }));
-
-         if (data.role == 'Student') {
-          // link sudent with pages
-          localStorage.setItem('UserLoginFlage', 'true');
-          console.log('Login Studnt');
-          console.log(localStorage.getItem('UserLoginFlage'));
-           this.router.navigate(['/home']);
-        }else if (data.role == 'Admin') {
-          this.router.navigate(['admin/admindashboard']);
-        } 
-
-
-      })
-
-      this.http.get('https://localhost:44363/api/Account/getAccountId/'+this.EmailId).subscribe((result) => {
-        this.AccountId = result;
-          this.IdAccount = this.AccountId[0].acoountid;
-          localStorage.setItem('IdAccount', this.AccountId[0].acoountid);
-          console.log('localStorage.setItem');
-          console.log(this.IdAccount);
+    this.http.post('https://localhost:44363/api/JWT/auth', body, requestOptions).subscribe((res: any) => {
+      console.log(res);
+      const response = {
+        token: res.toString(),
+      };
+      localStorage.setItem('token', response.token);
+      let data: any = jwt_decode(response.token);
+      console.log('decode', data);
+      localStorage.setItem('user', JSON.stringify({ ...data }));
+      if (data.role == 'Teacher' && data.actort == 'accept') {
+        this.router.navigate(['teacher/teacherDashboard']).then(() => {
+          window.location.reload();
         });
+        //link Teacher with pag
+      }
+      else if (data.role == 'Teacher' && data.actort == 'waiting') {
+        this.router.navigate(['teacher/waitingTeacher']).then(() => {
+          window.location.reload();
+          localStorage.clear();
+        });
+        //link Teacher with pag
+      }
+      else if (data.role == 'Teacher' && data.actort == 'reject') {
+        this.router.navigate(['teacher/rejectTeacher']).then(() => {
+          window.location.reload();
+          localStorage.clear();
+        });
+        //link Teacher with pag
+      }
+    });
+
+
+    this.http.post('https://localhost:44363/api/JWT/authStudent', body, requestOptions).subscribe((res) => {
+      console.log(res);
+      const response = {
+        token: res.toString(),
+      };
+      localStorage.setItem('token', response.token);
+      let data: any = jwt_decode(response.token);
+      console.log('decode', data);
+      localStorage.setItem('user', JSON.stringify({ ...data }));
+      if (data.role == 'Student') {
+        // link sudent with pages
+        localStorage.setItem('UserLoginFlage', 'true');
+        console.log('Login Studnt');
+        console.log(localStorage.getItem('UserLoginFlage'));
+        this.router.navigate(['/home']);
+      } else if (data.role == 'Admin') {
+        this.router.navigate(['admin/admindashboard']);
+      }
+
+
+    })
+
+    this.http.get('https://localhost:44363/api/Account/getAccountId/' + this.EmailId).subscribe((result) => {
+      this.AccountId = result;
+      this.IdAccount = this.AccountId[0].acoountid;
+      localStorage.setItem('IdAccount', this.AccountId[0].acoountid);
+      console.log('localStorage.setItem');
+      console.log(this.IdAccount);
+    });
     // }),err => {
 
     // }
@@ -121,7 +112,7 @@ export class AuthserviceService {
   getByID(acoountid: any) {
 
     this.http
-      .get('https://localhost:44363/api/Account/GetAccount/'+acoountid)
+      .get('https://localhost:44363/api/Account/GetAccount/' + acoountid)
       .subscribe(
         (res) => {
           this.selectedAccount = res;
@@ -153,9 +144,9 @@ export class AuthserviceService {
   }
 
 
-uploadImage(data :any){
-return this.http.post('https://localhost:44363/api/Account/UploadImage',data);
-}
+  uploadImage(data: any) {
+    return this.http.post('https://localhost:44363/api/Account/UploadImage', data);
+  }
 
   getAllAccounts() {
 
@@ -216,7 +207,7 @@ return this.http.post('https://localhost:44363/api/Account/UploadImage',data);
 
   delete(acoountid: number) {
     this.http
-      .delete('https://localhost:44363/api/Account/UpdateAccount/'+acoountid)
+      .delete('https://localhost:44363/api/Account/UpdateAccount/' + acoountid)
       .subscribe(
         (res) => {
           this.toaster.success('deleted  succefully');

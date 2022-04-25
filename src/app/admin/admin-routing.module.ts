@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '../home/home.component';
+import { AdminUpdateProfileComponent } from './admin-update-profile/admin-update-profile.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { ChartComponent } from './chart/chart.component';
 import { CountComponent } from './count/count.component';
@@ -40,12 +41,14 @@ const routes: Routes = [
   }, {
     path: 'count',
     component: CountComponent
-  }, {
-    path: 'updateProfile',
-    component: UpdateProfileComponent
-  },{
+  },
+  {
     path:'chart',
     component:ChartComponent
+  },
+  {
+    path:'updateProfile',
+    component:AdminUpdateProfileComponent
   }
 ];
 

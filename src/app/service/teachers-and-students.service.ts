@@ -58,7 +58,7 @@ updateAccountStatus(body:any){
 }
 
 sendemailcontact(data:any){
-  debugger
+  
   this.http.post('https://localhost:44363/api/jwt/SendEmail/',data).subscribe(
     (res:any)=>{
       debugger;
@@ -66,7 +66,7 @@ sendemailcontact(data:any){
     });
 }
 deleteteacher(acoountid:number){
-  debugger
+  
   this.http.delete('https://localhost:44363/api/account/DeleteAccount/'+acoountid).subscribe((res)=>{
     this.toaster.success('deleted  succefully')   
   },err=>{
