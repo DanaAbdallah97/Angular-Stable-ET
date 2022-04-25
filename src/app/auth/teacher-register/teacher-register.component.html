@@ -16,42 +16,54 @@
         [(ngModel)]="roldeidTeacher" hidden />
       <br />
       <!-- first name -->
-      <input class="form-control" type="text" name="firstname" ngModel placeholder="fname" required minlength="4" />
+      <input class="form-control" type="text" name="firstname" #myTitle (keyup)="keyup(myTitle.value)" ngModel placeholder="fname" required minlength="4" />
+      <h5 *ngIf="showmsg" style="color: red;">{{ text }}</h5>
       <br />
       <!-- last name -->
-      <input class="form-control" type="text" name="lastname" ngModel placeholder="lastname" />
+      <input class="form-control" type="text" name="lastname" #myTitle2 (keyup)="keyup2(myTitle2.value)" ngModel placeholder="lastname" />
+      <h5 *ngIf="showmsg2" style="color: red;">{{ text }}</h5>
       <br />
       <!-- password -->
-      <input class="form-control" type="text" name="accountpassword" ngModel placeholder="password" />
+      <input class="form-control" type="password" name="accountpassword" #myTitle3 (keyup)="keyup3(myTitle3.value)" ngModel  placeholder="password" />
+      <h5 *ngIf="showmsg3" style="color: red;">{{ text3 }}</h5>
       <br />
       <!-- email -->
-      <input class="form-control" class="form-control" type="email" name="email" ngModel placeholder="email" />
+      <input class="form-control" class="form-control" type="email" name="email" #myTitle4 (keyup)="keyup4(myTitle4.value)" [pattern]="emailPattern"  ngModel placeholder="email" />
+      <h5 *ngIf="showmsg4" style="color: red;">{{ text4 }}</h5>
       <br />
       <!-- phone number -->
-      <input class="form-control" type="text" name="phonenumber" ngModel placeholder="phonenumber" />
+      <input class="form-control" type="text" name="phonenumber" ngModel placeholder="phonenumber"  #myTitle5 (keyup)="keyup5(myTitle5.value)"/>
+      <h5 *ngIf="showmsg5" style="color: red;">{{ text5 }}</h5>
       <br />
       <!-- gender -->
-      <select class="form-control" name="gender" ngModel>
+      <select class="form-control" name="gender" ngModel (change)="selectChangeHandler($event)">
         <option value="" disabled selected hidden>Choose Gender...</option>
         <option class="form-control" value="male">Male</option>
-        <option class="form-control" value="female">Female</option>
-      </select> <br />
+        <option class="form-control" value="female">Female</option>      
+      </select> 
+      <h5 *ngIf="showmsg6" style="color: red;">{{ text6 }}</h5>
+      <br />
       <!-- date of birth -->
-      <input class="form-control" type="date" name="birthofdate" ngModel placeholder="Birth of date" /><br>
+      <input class="form-control" type="date" name="birthofdate" ngModel placeholder="Birth of date" (change)="selectChangeHandlerBirth($event)"/>
+      <h5 *ngIf="showmsg7" style="color: red;">{{ text7 }}</h5>
+      <br>
       <!-- specialization -->
-      <input class="form-control" type="text" name="specialization" ngModel placeholder="specialization" />
+      <input class="form-control" type="text" name="specialization" ngModel placeholder="specialization"  #myTitle10 (keyup)="keyup8(myTitle10.value)"/>
+      <h5 *ngIf="showmsg9" style="color: red;">{{ text9 }}</h5>
       <table>
         <tr>
           <td>
             <!-- profile picture -->
             <input style="opacity: 0;" id="file" type="file" (change)="onFileSelected($event)" #fileInput>
             <label class="genric-btn primary" for="file">Profile Picture</label>
+            <h5 *ngIf="showmsg8" style="color: red;">{{ text8 }}</h5>
             <!-- <input class="form-control" type="text" name="profilepicture" ngModel placeholder="profilepicture" /> -->
           </td>
           <td>
             <!-- certificate -->
             <input style="opacity: 0;" id="fileCertificate" type="file" (change)="onFileSelectedCertificate($event)" #fileInputCertificate>
             <label class="genric-btn primary" for="fileCertificate">Certificate</label>
+            <h5 *ngIf="showmsg11" style="color: red;">{{ text11 }}</h5>
             <!-- <input class="form-control" type="text" name="certificate" ngModel placeholder="certificate" /><br> -->
           </td>
         </tr>
@@ -61,7 +73,7 @@
         [value]="teacherstatus" [(ngModel)]="teacherstatus" hidden />
       <br/><br/><br/>
       <button class="button button-contactForm boxed-btn" type="submit">
-        submit
+        Register
       </button>
       <br /><br /><br /><br /><br />
     </form>
