@@ -8,6 +8,7 @@ import { AuthModule } from './auth/auth.module';
 import { ConcatusComponent } from './concatus/concatus.component';
 import { CourseComponent } from './course/course.component';
 import { HomeComponent } from './home/home.component';
+import { MapComponent } from './map/map.component';
 import { SearchTeacherComponent } from './search-teacher/search-teacher.component';
 import { SharedRoutingModule } from './shared/shared-routing.module';
 import { SharedModule } from './shared/shared.module';
@@ -43,6 +44,11 @@ const routes: Routes = [
   {
     path: 'appointmentStudent',
     component: AppointmentStudentComponent
+  },
+  {
+    path:'map',
+    component: MapComponent
+
   },
 
 {path:'search',
