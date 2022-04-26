@@ -25,6 +25,7 @@ import { SearchTeacherComponent } from './search-teacher/search-teacher.componen
 import { TeacherCourseComponent } from './teacher-course/teacher-course.component';
 import { UpdateProfileStudentComponent } from './update-profile-student/update-profile-student.component';
 import { AppointmentStudentComponent } from './appointment-student/appointment-student.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { AppointmentStudentComponent } from './appointment-student/appointment-s
     TeacherCourseComponent,
     UpdateProfileStudentComponent,
     AppointmentStudentComponent,
+    MapComponent,
 
 
 

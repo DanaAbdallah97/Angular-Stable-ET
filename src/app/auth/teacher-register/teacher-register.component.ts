@@ -18,7 +18,7 @@ export class TeacherRegisterComponent implements OnInit {
   text = 'Please Enter Valid Name';
   text3 = 'Please Enter Valid Password';
   text4 = 'Please Enter Valid Email';
-  emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"; 
+  emailPattern = "/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/"; 
   text5 = 'Please Enter Valid Phone Number';
   text6= 'Please Choose Gender';
 
@@ -146,7 +146,7 @@ export class TeacherRegisterComponent implements OnInit {
 
   showmsg4=true;
   keyup4(value: string) {
-    if(value.length>=3 && value.match(this.emailPattern))
+    if(value.length>=3 )
     {
       this.showmsg4=false;
     }

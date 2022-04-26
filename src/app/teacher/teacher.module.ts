@@ -14,6 +14,7 @@ import { DialogCreateCoursComponent } from './dialog-create-cours/dialog-create-
 import { NotAcceptTeacherComponent } from './not-accept-teacher/not-accept-teacher.component';
 import { WaitingTeacherComponent } from './waiting-teacher/waiting-teacher.component';
 import { DialogAppointmentComponent } from '../dialog-appointment/dialog-appointment.component';
+import { TeacherMapComponent } from './teacher-map/teacher-map.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { DialogAppointmentComponent } from '../dialog-appointment/dialog-appoint
     DialogCreateCoursComponent,
     NotAcceptTeacherComponent,
     WaitingTeacherComponent,
-    DialogAppointmentComponent
+    DialogAppointmentComponent,
+    TeacherMapComponent
   ],
   imports: [
     CommonModule,

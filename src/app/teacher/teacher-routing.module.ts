@@ -6,6 +6,7 @@ import { AppointmentComponent } from '../appointment/appointment.component';
 import { AppointmentTeacherComponent } from './appointment-teacher/appointment-teacher.component';
 import { ManageCoursesComponent } from './manage-courses/manage-courses.component';
 import { NotAcceptTeacherComponent } from './not-accept-teacher/not-accept-teacher.component';
+import { TeacherMapComponent } from './teacher-map/teacher-map.component';
 import { TeacherProfileComponent } from './teacher-profile/teacher-profile.component';
 import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.component';
 import { WaitingTeacherComponent } from './waiting-teacher/waiting-teacher.component';
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'appointment',
     component: AppointmentTeacherComponent
+  },
+  {
+    path: 'teacherMap',
+    component: TeacherMapComponent
   },
   {
     path: 'manageCourse',
