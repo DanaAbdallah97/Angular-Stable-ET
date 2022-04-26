@@ -12,14 +12,31 @@ import { HttpClient } from '@angular/common/http';
 export class TeacherMapComponent implements OnInit {
 
 
+
   mapa: any;
   locationTeacher: any;
   objTeacher: any;
   id: any = localStorage.getItem('IdAccount');
   teacherid = parseInt(this.id);
+  teacherInformation:any={};
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+
+this.http.get('https://localhost:44363/api/Account/GetTeacherById/'+this.teacherid).subscribe((result)=>
+{
+
+  console.log(result);
+  this.teacherInformation=result;
+  console.log(this.teacherInformation[0].wline, this.teacherInformation[0].hline)
+  this.createMarker(this.teacherInformation[0].hline,this.teacherInformation[0].wline);
+
+})
+
+
+    // this.createMarker();
+
+  }
 
   ngOnInit(): void {
 
@@ -33,7 +50,6 @@ export class TeacherMapComponent implements OnInit {
 
     // Add zoom and rotation controls to the map.
     this.mapa.addControl(new mapboxgl.NavigationControl());
-    this.createMarker(35.8389018, 32.5552896);
 
   }
 
@@ -50,8 +66,9 @@ export class TeacherMapComponent implements OnInit {
     this.http.put('https://localhost:44363/api/Account/AddLocation/', this.objTeacher).subscribe((result) => {
 
       console.log(result);
-
+           this.createMarker(35.8389018, 32.5552896);
     });
+    window.location.reload();
 
   }
 

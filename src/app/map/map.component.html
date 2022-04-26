@@ -1,4 +1,54 @@
 <app-header></app-header>
+
 <div id="map"></div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>    
+
+<div style="
+    position: absolute;
+    margin-left: 1018px;
+    margin-top: -607px;
+    background-color: #bcdfff;
+  ">
+  <table style="height: 600px; width: 330px" border="">
+    <thead>
+      <td>
+        <h2 style="text-align: center"><b>The Teachers</b></h2>
+      </td>
+    </thead>
+
+    <tbody>
+      <div *ngFor="let item of allTeacher">
+        <tr>
+          <td>
+            <div>
+          <td>
+            <img src="../../assets/img/{{item.profilepicture}}" style="
+                  vertical-align: middle;
+                  width: 40px;
+                  height: 40px;
+                  border-radius: 50%;
+                " />
+          </td>
+
+          <td>
+            <h4> </h4>
+          </td>
+          <td>
+            <h4> </h4>
+          </td>
+          <td>
+            <h4> </h4>
+          </td>
+          <td>
+            <a type="button" (click)="getLocation(item.wline,item.hline)">
+              <h3>{{item.firstname}} {{item.lastname}} - {{item.specialization}} </h3>
+            </a>
+          </td>
+      </div>
+      </td>
+      </tr>
+</div>
+</tbody>
+</table>
+</div>
+
 <app-footer></app-footer>
